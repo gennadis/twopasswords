@@ -1,6 +1,10 @@
-from os import getenv
+import os
+import dotenv
 from typing import Union
 from cryptography.fernet import Fernet
+
+dotenv.load_dotenv()
+key_path = os.environ.get("SECRET_KEY")
 
 
 class EncryptionEngine:
@@ -14,7 +18,7 @@ class EncryptionEngine:
     """
 
     def __init__(self):
-        self.key_file = "secret.key"
+        self.key_file = key_path
         self._generate_key()
         self.fernet_obj = self._load_key()
 

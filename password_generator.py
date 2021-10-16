@@ -1,5 +1,10 @@
+import os
 import string
+import dotenv
 from random import SystemRandom, choice
+
+dotenv.load_dotenv()
+words_path = os.environ.get("WORDS")
 
 
 class PasswordGenerator:
@@ -17,10 +22,8 @@ class PasswordGenerator:
 
     styles = ("random", "xkcd", "pin")
 
-    # alphabet for random password generation
     alphabet: list = string.ascii_letters + string.digits + string.punctuation
-    # txt file path for xkcd password generation
-    words_path: str = "cryptog/words.txt"
+    words_list: str = words_path
 
     def random_style(self) -> str:
         """
@@ -69,7 +72,7 @@ class PasswordGenerator:
     # get words from a file
     @staticmethod
     def get_words() -> list:
-        with open(PasswordGenerator.words_path, "r") as wordlist:
+        with open(PasswordGenerator.words_list, "r") as wordlist:
             words = wordlist.readlines()
 
         return words
@@ -78,7 +81,7 @@ class PasswordGenerator:
         """Generate XKCD style password from random words.
         See https://xkcd.com/936/ for more information.
         """
-        words = self.get_words()  # get words from a file
+        words = self.get_words()
         password = "-".join(
             [SystemRandom().choice(words).strip() for _ in range(self.length)]
         )
@@ -98,22 +101,8 @@ class PasswordGenerator:
     def __repr__(self) -> str:
         return f"PasswordGenerator{self.style, self.length}"
 
-    # def validate_password() -> str:
-    #     """Validate generated XKCD-style password by user.
-    #     Function implemented only for convenience of remembering the password.
-    #     """
-    #     accepted = False
-    #     while not accepted:
-    #         password = generate_xkcd()
-    #         print(f"Generated password: {password}")
-    #         accepted = input("Accept? [YES / NO] ").lower() in ["yes", "y"]
-    #         # print(f'Password accepted: {str(accepted).upper()}')
-    #     return password
-
 
 if __name__ == "__main__":
-    # PasswordGenerator class practice below...
-
     print(PasswordGenerator())  # repr test
 
     random_pass = PasswordGenerator("random", 8).generate_password()
