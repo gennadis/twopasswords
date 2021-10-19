@@ -3,82 +3,64 @@ import string
 import dotenv
 from random import SystemRandom, choice
 
+
+"""
+------------------
+IT"S ALL GOOD HERE
+------------------
+"""
+
+
 dotenv.load_dotenv()
-words_path = os.environ.get("WORDS")
+WORDS = os.environ.get("WORDS")
 
 
 class PasswordGenerator:
     """
-    This class is responsible for all the Password generation
-    operations needed in the code such as:
-    - generating random style password
-    - generating XKCD style password
-    - generating PIN style password
+    Password generation class.
+    - generate random style password
+    - generate XKCD style password
+    - generate PIN style password
     """
 
     def __init__(self, style: str = "random", length: int = 16):
         self.style = style
         self.length = length
-
-    styles = ("random", "xkcd", "pin")
-
-    alphabet: list = string.ascii_letters + string.digits + string.punctuation
-    words_list: str = words_path
+        self.alphabet = string.ascii_letters + string.digits + string.punctuation
+        self.words_list = WORDS
+        self.styles = ("random", "xkcd", "pin")
 
     def random_style(self) -> str:
         """
-        Generate totally random password.
-        At least 1 of (lower, upper, number, punctuation) symbols shall be included.
-        So length should be >= 4.
+        Generete totally random password that contains
+        letters, digits and punctuation symbols.
+        At least 1 letter, 1 digit and 1 punct guaranteed.
         """
-
-        # TODO: more elegant implementation needed
-        # - without HARDCODING LENGTH value
-        # - without WHILE_TRUE
-
-        if self.length < 4:
-            self.length = 4
-
-        while True:
-            password = ""
-            for _ in range(self.length):
-                symbol = SystemRandom().choice(PasswordGenerator.alphabet)
-                password += symbol
-
-            if (
-                # check if at least 1 lowercase letter in password
-                any(char.islower() for char in password)
-                # check if at least 1 uppercase letter in password
-                and any(char.isupper() for char in password)
-                # check if at least 1 digit symbol in password
-                and any(char.isdigit() for char in password)
-                # check if at least 1 punctuation symbol in password
-                and any(char in string.punctuation for char in password)
-            ):
-                break
-
-        return password
+        letters = SystemRandom().sample(population=string.ascii_letters, k=1)
+        digits = SystemRandom().sample(population=string.digits, k=1)
+        puncts = SystemRandom().sample(population=string.punctuation, k=1)
+        other = SystemRandom().sample(population=self.alphabet, k=self.length - 3)
+        all = letters + digits + puncts + other
+        SystemRandom().shuffle(all)
+        return "".join(all)
 
     def pin_style(self) -> str:
         """
         Generate PIN style password.
         Digits only.
         """
-        self.alphabet = string.digits
-        pin = "".join([choice(self.alphabet) for _ in range(self.length)])
-
-        return pin
+        return "".join([choice(string.digits) for _ in range(self.length)])
 
     # get words from a file
-    @staticmethod
-    def get_words() -> list:
-        with open(PasswordGenerator.words_list, "r") as wordlist:
+    def get_words(self) -> list:
+        with open(self.words_list, "r") as wordlist:
             words = wordlist.readlines()
 
         return words
 
     def xkcd_style(self) -> str:
-        """Generate XKCD style password from random words.
+        """
+        Generate XKCD style password from random words.
         See https://xkcd.com/936/ for more information.
         """
         words = self.get_words()
@@ -89,6 +71,10 @@ class PasswordGenerator:
         return password
 
     def generate_password(self) -> str:
+        """
+        Check password style and return accordingly.
+        """
+
         if self.style == "random":
             return self.random_style()
         if self.style == "xkcd":
@@ -103,18 +89,11 @@ class PasswordGenerator:
 
 
 if __name__ == "__main__":
-    print(PasswordGenerator())  # repr test
-
     random_pass = PasswordGenerator("random", 8).generate_password()
     print(random_pass)
     xkcd_pass = PasswordGenerator("xkcd", 4).generate_password()
     print(xkcd_pass)
     pin_pass = PasswordGenerator("pin", 6).generate_password()
     print(pin_pass)
-
-    # now let's check this with attributes set to default...
     fast_pass = PasswordGenerator().generate_password()
     print(fast_pass)
-
-    # error_pass = PasswordGenerator("other_style", 9).generate_password()
-    # print(error_pass)
