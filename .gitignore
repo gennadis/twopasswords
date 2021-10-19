@@ -1,3 +1,7 @@
 venv/
 .DS_Store/
 *.key
+*.jpg
+*.sqlite
+.env
+__pycache__
