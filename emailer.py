@@ -9,7 +9,7 @@ IT"S ALL GOOD HERE
 """
 
 
-class Email:
+class EmailSender:
     """
     Class for sending emails via Gmail service
     """
