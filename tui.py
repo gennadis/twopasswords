@@ -1,13 +1,22 @@
 import py_cui
 import os
+import sys
 import dotenv
 import pyperclip
+import threading
+import webbrowser
+from facescan import FaceScan
+from time import sleep
 from database import Account, DatabaseEngine
 from password_generator import PasswordGenerator
 
 dotenv.load_dotenv()
 DB_PATH = os.environ.get("DB_PATH")
 DB_PASSWORD = os.environ.get("DB_PASSWORD")
+
+new_picture = os.environ.get("LAST_IMAGE_PATH")
+user_picture = os.environ.get("USER_FACE")
+
 
 __version__ = "0.7"
 
@@ -34,17 +43,20 @@ class TwoPasswordsApp:
         self.all_accounts_menu.add_key_command(py_cui.keys.KEY_TAB, self.switch_widget)
 
         self.all_accounts_menu.add_key_command(
-            py_cui.keys.KEY_SPACE, self.open_account_card
+            py_cui.keys.KEY_SPACE, self.preview_account_card
         )
         self.all_accounts_menu.add_key_command(
-            py_cui.keys.KEY_O_LOWER, self.open_account_card
+            py_cui.keys.KEY_ENTER, self.open_account_card
+        )
+        self.all_accounts_menu.add_key_command(
+            py_cui.keys.KEY_O_LOWER, self.open_website
         )
         self.all_accounts_menu.add_key_command(
             py_cui.keys.KEY_A_LOWER, self.show_add_form
         )
 
         self.all_accounts_menu.set_help_text(
-            "|  (o)pen  |  (a)dd  |  Arrows - scroll, Esc - exit"
+            "|  (o)pen website |  (a)dd  |  Arrows - scroll, Esc - exit"
         )
 
         ################ ACCOUNT CARD MENU ################
@@ -64,9 +76,12 @@ class TwoPasswordsApp:
             "website", py_cui.CYAN_ON_BLACK, "startswith"
         )
         self.account_card_block.set_help_text(
-            "|  (c)opy password  |  (e)dit  |  (d)elete  |  Arrows - scroll, Esc - exit"
+            "|  (r)eveal password |  (c)opy password  |  (e)dit  |  (d)elete  |  Arrows - scroll, Esc - exit"
         )
         self.account_card_block.add_key_command(py_cui.keys.KEY_TAB, self.switch_widget)
+        self.account_card_block.add_key_command(
+            py_cui.keys.KEY_R_LOWER, self.reveal_password
+        )
         self.account_card_block.add_key_command(
             py_cui.keys.KEY_C_LOWER, self.copy_password
         )
@@ -90,7 +105,54 @@ class TwoPasswordsApp:
         self.search_textbox.set_help_text("Enter your search query, Esc - exit")
 
         ################ INITIALIZE MENUS WITH DATABASE STATUS ################
-        self.read_database()
+        self.show_facescan_popup()
+        # self.read_database()
+        # self.show_enter_pragma_box()
+
+    ################ INITIALIZE AUTH PROCESS ################
+
+    def show_facescan_popup(self) -> None:
+        self.root.show_loading_icon_popup("Please Wait", "Scanning your face")
+        operation_thread = threading.Thread(target=self.scan_face)
+        operation_thread.start()
+
+    def scan_face(self) -> None:
+        result_status = {
+            -1: "Stranger's face detected",
+            0: "No face detected",
+            1: "Auth OK",
+            2: "Multiple faces detected",
+        }
+        result: int = FaceScan(user_picture, new_picture).auth()
+        self.root.stop_loading_popup()
+
+        if result == 1:  # auth succeed, continue to pragma check
+            self.show_enter_pragma_box()
+
+        elif result in (0, 2):
+            self.root.show_yes_no_popup(
+                f"{result_status[result]}. Try again?", self.quit_from_facescan
+            )
+
+        elif result == -1:
+            os._exit(1)
+
+    def quit_from_facescan(self, to_quit):
+        if to_quit:  # if don't quit
+            self.show_facescan_popup()
+        else:
+            sys.exit()
+
+    def show_enter_pragma_box(self):
+        self.root.show_text_box_popup(
+            "Please enter a pragma key", self.check_pragma, password=True
+        )
+
+    def check_pragma(self, pragma):
+        if pragma == DB_PASSWORD:
+            self.read_database()
+        else:
+            self.show_enter_pragma_box()
 
     ################ LOGO ################
     def get_logo(self) -> list:
@@ -256,7 +318,7 @@ class TwoPasswordsApp:
             f"All accounts: {len(self.all_accounts_menu.get_item_list())} items"
         )
 
-    def populate_account_card(self, account: Account) -> None:
+    def populate_account_card(self, account: Account, reveal_password: bool = False):
         self.account_card_block.clear()
         self.account_card_block.set_title(account.item)
 
@@ -265,12 +327,13 @@ class TwoPasswordsApp:
             "username",
             account.username,
             "password",
-            account.password,
-            # "**********",
+            "**********",
             "",
             "website",
             account.url,
         ]
+        if reveal_password:
+            structure[4] = account.password  # populate card with password revealed
 
         self.account_card_block.add_item_list(structure)
 
@@ -281,7 +344,7 @@ class TwoPasswordsApp:
         """
         search_value: str = self.search_textbox.get()
         if len(search_value) == 0:
-            self.root.show_error_popup(
+            self.root.show_warning_popup(
                 "Invalid query", "Please enter a valid search query"
             )
             return
@@ -289,13 +352,26 @@ class TwoPasswordsApp:
         try:
             result: Account = self.database.get_account(search_value)
             self.populate_account_card(result)
-            # self.root.move_focus(self.account_card_block)
+            self.root.move_focus(self.account_card_block)
+            # set selection on result in all_accounts_menu
+            account_idx = self.all_accounts_menu.get_item_list().index(result.item)
+            self.all_accounts_menu.set_selected_item_index(account_idx)
 
         except:
             self.root.show_warning_popup(
                 "Search error", "Unable to get such account from database"
             )
         self.search_textbox.clear()
+
+    ################ PREVIEW CARD ################
+    def preview_account_card(self):
+        """
+        Opens account card view
+        """
+        current_account = self.all_accounts_menu.get()
+        account_info = self.database.get_account(current_account)
+        self.populate_account_card(account_info)
+        # self.root.move_focus(self.account_card_block)
 
     ################ OPEN CARD ################
     def open_account_card(self):
@@ -305,7 +381,7 @@ class TwoPasswordsApp:
         current_account = self.all_accounts_menu.get()
         account_info = self.database.get_account(current_account)
         self.populate_account_card(account_info)
-        # self.root.move_focus(self.account_card_block)
+        self.root.move_focus(self.account_card_block)
 
     @staticmethod
     def normalize_url(url: str) -> str:
@@ -313,9 +389,23 @@ class TwoPasswordsApp:
 
     ################ COPY TO CLIPBOARD ################
     def copy_password(self):
-        # current_line = self.account_card_block.get()
-        password = self.account_card_block.get_item_list()[4]
-        pyperclip.copy(password)
+        account_title = self.account_card_block.get_title()
+        account = self.database.get_account(account_title)
+
+        pyperclip.copy(account.password)
+
+    ################ REVEAL PASSWORD ################
+    def reveal_password(self):
+        account_title = self.account_card_block.get_title()
+        account = self.database.get_account(account_title)
+        self.populate_account_card(account, reveal_password=True)
+
+    ################ OPEN WEBBROWSER ################
+    def open_website(self):
+        account_title = self.all_accounts_menu.get()
+        account = self.database.get_account(account_title)
+        pyperclip.copy(account.password)
+        webbrowser.open(account.url)
 
     ################ SWITCH WIDGETS ################
     def switch_widget(self):
@@ -349,13 +439,17 @@ class TwoPasswordsApp:
         except:
             self.root.show_warning_popup(
                 "Database Fail",
-                "Unable to read database",
+                "Unable to open database",
             )
 
 
-root = py_cui.PyCUI(8, 8)
-root.toggle_unicode_borders()
-frame = TwoPasswordsApp(root)
+def start_tui():
+    root = py_cui.PyCUI(8, 8)
+    root.toggle_unicode_borders()
+    frame = TwoPasswordsApp(root)
 
-# Start App
-root.start()
+    root.start()
+
+
+if __name__ == "__main__":
+    start_tui()

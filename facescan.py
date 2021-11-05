@@ -3,7 +3,7 @@ import cv2
 import face_recognition
 from time import sleep
 from dotenv import load_dotenv
-from emailer import Email
+from emailer import EmailSender
 
 
 """
@@ -97,23 +97,23 @@ class FaceScan:
         2. Check the number of faces in a taken picture
         3. Compare face from a taken image to a Reference
         and send report email if stranger's face detected
-        4. return False if auth Failed
-                  True  if auth Succeeded
+        4. return
+           -1 :   Stranger's face detected
+            0 :   No face detected
+            1 :   Auth OK
+            2 :   Multiple faces detected
         """
-
         self.take_picture()
 
         if self.count_faces() == 0:
-            print("No face detected")
-            return False
+            return 0
         if self.count_faces() > 1:
             self.draw_rectangle()
-            print("Multiple faces detected")
-            return False
+            return 2
 
         if self.compare_faces() != [True]:  # some strange comparison here...
             self.draw_rectangle()
-            Email(
+            EmailSender(
                 "Face auth report",
                 "Warning! Last face auth was failed! Check the image in attachments!!!",
                 EMAIL_ADDRESS,
@@ -122,11 +122,9 @@ class FaceScan:
                 EMAIL_SERVER,
                 EMAIL_PORT,
             ).send_email()
-            print("---------------- AUTH FAILED! ----------------")
-            return False
+            return -1
 
-        print("Auth OK! Ready to proceed.")
-        return True
+        return 1
 
 
 if __name__ == "__main__":
@@ -135,7 +133,4 @@ if __name__ == "__main__":
     new_picture = os.environ.get("LAST_IMAGE_PATH")
     user_picture = os.environ.get("USER_FACE")
 
-    if FaceScan(user_picture, new_picture).auth() is True:
-        print("YEEEHAAAAAHH")
-    else:
-        print("Noooo")
+    print(FaceScan(user_picture, new_picture).auth())
