@@ -1,6 +1,7 @@
 import py_cui
 import os
 import sys
+import logging
 import dotenv
 import pyperclip
 import threading
@@ -34,10 +35,14 @@ class TwoPasswordsApp:
         self.root.add_key_command(py_cui.keys.KEY_TAB, self.switch_widget)
         self.root.set_status_bar_text("Quit - q | Menu - m ")
 
+        # say bye on exit
+        self.root.run_on_exit(self.say_bye)
+
         ################ ALL ACCOUNTS MENU ################
         self.all_accounts_menu = self.root.add_scroll_menu(
             "All Accounts", 0, 0, row_span=7, column_span=2
         )
+
         self.all_accounts_menu.set_selected_color(py_cui.BLACK_ON_WHITE)
 
         self.all_accounts_menu.add_key_command(py_cui.keys.KEY_TAB, self.switch_widget)
@@ -55,6 +60,12 @@ class TwoPasswordsApp:
             py_cui.keys.KEY_A_LOWER, self.show_add_form
         )
 
+        # --------------- MAMMA MIA!!!
+        self.all_accounts_menu.set_on_selection_change_event(
+            on_selection_change_event=self.handle_all_accounts_menu_arrows
+        )
+        # --------------- MAMMA MIA!!!
+
         self.all_accounts_menu.set_help_text(
             "|  (o)pen website |  (a)dd  |  Arrows - scroll, Esc - exit"
         )
@@ -63,7 +74,6 @@ class TwoPasswordsApp:
         self.account_card_block = self.root.add_scroll_menu(
             "Account card", 0, 2, row_span=8, column_span=6
         )
-
         self.account_card_block.add_item_list(self.get_logo())  # add logo on app start
 
         self.account_card_block.add_text_color_rule(
@@ -112,9 +122,9 @@ class TwoPasswordsApp:
     ################ INITIALIZE AUTH PROCESS ################
 
     def show_facescan_popup(self) -> None:
-        self.root.show_loading_icon_popup("Please Wait", "Scanning your face")
-        operation_thread = threading.Thread(target=self.scan_face)
-        operation_thread.start()
+        self.root.show_loading_icon_popup("Please Wait", "Scanning your face...")
+        self.operation_thread = threading.Thread(target=self.scan_face)
+        self.operation_thread.start()
 
     def scan_face(self) -> None:
         result_status = {
@@ -135,13 +145,18 @@ class TwoPasswordsApp:
             )
 
         elif result == -1:
-            os._exit(1)
+            self.root.stop()
+            # os.system("clear")
+            # print("WARNING: Facescan Auth Failed!")
+            # os._exit(1)
+            # # sys.exit()
+            # # self.operation_thread.stop()
 
-    def quit_from_facescan(self, to_quit):
-        if to_quit:  # if don't quit
+    def quit_from_facescan(self, try_again):
+        if try_again:
             self.show_facescan_popup()
         else:
-            sys.exit()
+            self.root.stop()
 
     def show_enter_pragma_box(self):
         self.root.show_text_box_popup(
@@ -190,12 +205,17 @@ class TwoPasswordsApp:
         """
         Manages menu option choices
         """
-        if option == "Menu option 1":
-            pass
+        if option == "Help":
+            self.show_help()
         elif option == "Menu option 2":
-            pass
+            self.show_help()
         elif option == "Menu option 3":
-            pass
+            self.show_help()
+
+    ################ HANDLE ARROW KEY PRESSES IN ALL ACCOUNTS MENU ################
+    def handle_all_accounts_menu_arrows(self, item):
+        current_account = self.database.get_exact_account(item)
+        self.populate_account_card(current_account)
 
     ################ ADD FORM ################
     def show_add_form(self):
@@ -413,14 +433,14 @@ class TwoPasswordsApp:
         Cycles through all widgets
         Current count of widgets is *THREE*
         """
-        pass
-        # widgets_count = len(self.root.get_widgets().keys())  # len([0, 1, 2]) == 3
-        # current_widget_id = self.root._selected_widget
+        # pass
+        widgets_count = len(self.root.get_widgets().keys())  # len([0, 1, 2]) == 3
+        current_widget_id = self.root._selected_widget
 
-        # if current_widget_id < widgets_count - 1:
-        #     self.root.set_selected_widget(current_widget_id + 1)
-        # else:
-        #     self.root.set_selected_widget(0)
+        if current_widget_id < widgets_count - 1:
+            self.root.set_selected_widget(current_widget_id + 1)
+        else:
+            self.root.set_selected_widget(0)
 
     ################ LOAD DATABASE ################
     def read_database(self, preserve_selected=False):
@@ -442,9 +462,24 @@ class TwoPasswordsApp:
                 "Unable to open database",
             )
 
+    ################ SAY BYE ON EXIT ################
+    def say_bye(self):
+        os.system("clear")
+        print("HAVE A NICE DAY! 😊")
+
+    ################ SHOW HELP TEXT ################
+    def show_help(self):
+        help_text = (
+            "ENTER HELP TEXT HERE..."
+            + "ENTER HELP TEXT HERE..."
+            + "ENTER HELP TEXT HERE..."
+        )
+        self.root.show_message_popup("HELP", help_text)
+
 
 def start_tui():
     root = py_cui.PyCUI(8, 8)
+    root.enable_logging(logging_level=logging.DEBUG)
     root.toggle_unicode_borders()
     frame = TwoPasswordsApp(root)
 
