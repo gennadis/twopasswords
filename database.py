@@ -18,7 +18,7 @@ DB_PATH = os.environ.get("DB_PATH")
 DB_PASSWORD = os.environ.get("DB_PASSWORD")
 
 
-def create_db(path: str, password: str) -> None:
+def create_db(path: str, password: str, to_create=False) -> None:
     """
     Create a database:
         table acoounts:
@@ -29,21 +29,23 @@ def create_db(path: str, password: str) -> None:
             4. username TEXT
             5. password TEXT
     """
-    connection = sqlite3.connect(path)
-    if password is not None:
-        connection.execute(f"pragma key = {password}")
-    cursor = connection.cursor()
-    cursor.execute(
-        """CREATE TABLE IF NOT EXISTS accounts (
-        id INTEGER PRIMARY KEY,
-        item TEXT,
-        url TEXT,
-        username TEXT,
-        password TEXT
-        )"""
-    )
-    connection.commit()
-    connection.close()
+    if to_create:
+        connection = sqlite3.connect(path)
+        if password is not None:
+            connection.execute(f"pragma key = {password}")
+        cursor = connection.cursor()
+        cursor.execute(
+            # """CREATE TABLE IF NOT EXISTS accounts (
+            """CREATE TABLE accounts (
+            id INTEGER PRIMARY KEY,
+            item TEXT,
+            url TEXT,
+            username TEXT,
+            password TEXT
+            )"""
+        )
+        connection.commit()
+        connection.close()
 
 
 class DatabaseEngine:
@@ -105,6 +107,9 @@ class DatabaseEngine:
             {"url": account.url, "username": account.username},
         )
 
+    def clear_database(self) -> None:
+        self.cursor.execute("DELETE FROM accounts")
+
 
 class Account:
     def __init__(self, item: str, url: str, username: str, password: str):
@@ -127,33 +132,34 @@ class Account:
 
 
 if __name__ == "__main__":
+    pass
 
-    create_db(DB_PATH, DB_PASSWORD)
+    # create_db(DB_PATH, DB_PASSWORD, to_create=True)
 
-    db_session = DatabaseEngine(DB_PATH, DB_PASSWORD)
-    # print(db_session.get_all_accounts())
-    # print(db_session.get_account("http://www.wells.org/"))
+    # db_session = DatabaseEngine(DB_PATH, DB_PASSWORD)
+    # # print(db_session.get_all_accounts())
+    # # print(db_session.get_account("http://www.wells.org/"))
 
-    for i in range(35):
-        new_account = Account.from_faker()
-        db_session.add_account(new_account)
-        print(f"{new_account} added to database")
+    # for i in range(35):
+    #     new_account = Account.from_faker()
+    #     db_session.add_account(new_account)
+    #     print(f"{new_account} added to database")
 
-    # for el in db_session.get_all_accounts():
-    #     print(*el, sep="  --  ")
+    # # for el in db_session.get_all_accounts():
+    # #     print(*el, sep="  --  ")
 
-    # print(db_session.get_account("and"))
+    # # print(db_session.get_account("and"))
 
-    db_session.safe_push()
+    # db_session.safe_push()
 
-    # new_account = Account("ping.com", "username11", "password111")
-    # new_account_2 = Account("sing.com", "username22", "password222")
+    # # new_account = Account("ping.com", "username11", "password111")
+    # # new_account_2 = Account("sing.com", "username22", "password222")
 
-    # session.add_account(new_account)
-    # session.add_account(new_account_2)
+    # # session.add_account(new_account)
+    # # session.add_account(new_account_2)
 
-    # res = session.get_all_accounts()
-    # for el in res:
-    #     print(Account(*el[1:]))
+    # # res = session.get_all_accounts()
+    # # for el in res:
+    # #     print(Account(*el[1:]))
 
-    # session.safe_push()
+    # # session.safe_push()

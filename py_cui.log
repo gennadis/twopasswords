@@ -1,0 +1,917 @@
+2021-11-07 23:14:42,674 - py_cui - INFO | Initialized logger: Function enable_logging in __init__.py:233
+2021-11-07 23:14:42,674 - py_cui - DEBUG | Set border_characters to {'UP_LEFT': '╭', 'UP_RIGHT': '╮', 'DOWN_LEFT': '╰', 'DOWN_RIGHT': '╯', 'HORIZONTAL': '─', 'VERTICAL': '│'}: Function set_widget_border_characters in __init__.py:410
+2021-11-07 23:14:42,674 - py_cui - DEBUG | Setting selected widget to ID 0: Function set_selected_widget in __init__.py:1046
+2021-11-07 23:14:42,674 - py_cui - INFO | Adding widget All Accounts w/ ID 0 of type <class 'py_cui.widgets.ScrollMenu'>: Function add_scroll_menu in __init__.py:454
+2021-11-07 23:14:42,675 - py_cui - INFO | Adding widget Account card w/ ID 1 of type <class 'py_cui.widgets.ScrollMenu'>: Function add_scroll_menu in __init__.py:454
+2021-11-07 23:14:42,675 - py_cui - DEBUG | Adding item list ['  ......   .........    ......   ', ' ::::::::  :::::::::   ::::::::  ', ':+:    :+: :+:    :+: :+:    :+: ', '      +:+  +:+    +:+ +:+        ', '    +#+    +#++:++#+  +#++:++#++ ', '  +#+      +#+               +#+ ', ' #+#       #+#        #+#    #+# ', '########## ###         ########  ', '2passwords ###          ######   '] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:14:42,675 - py_cui - DEBUG | Adding item   ......   .........    ......    to menu: Function add_item in ui.py:844
+2021-11-07 23:14:42,675 - py_cui - DEBUG | Adding item  ::::::::  :::::::::   ::::::::   to menu: Function add_item in ui.py:844
+2021-11-07 23:14:42,675 - py_cui - DEBUG | Adding item :+:    :+: :+:    :+: :+:    :+:  to menu: Function add_item in ui.py:844
+2021-11-07 23:14:42,675 - py_cui - DEBUG | Adding item       +:+  +:+    +:+ +:+         to menu: Function add_item in ui.py:844
+2021-11-07 23:14:42,675 - py_cui - DEBUG | Adding item     +#+    +#++:++#+  +#++:++#++  to menu: Function add_item in ui.py:844
+2021-11-07 23:14:42,675 - py_cui - DEBUG | Adding item   +#+      +#+               +#+  to menu: Function add_item in ui.py:844
+2021-11-07 23:14:42,675 - py_cui - DEBUG | Adding item  #+#       #+#        #+#    #+#  to menu: Function add_item in ui.py:844
+2021-11-07 23:14:42,675 - py_cui - DEBUG | Adding item ########## ###         ########   to menu: Function add_item in ui.py:844
+2021-11-07 23:14:42,675 - py_cui - DEBUG | Adding item 2passwords ###          ######    to menu: Function add_item in ui.py:844
+2021-11-07 23:14:42,675 - py_cui - INFO | Adding widget Search TwoPasswords w/ ID 2 of type <class 'py_cui.widgets.TextBox'>: Function add_text_box in __init__.py:549
+2021-11-07 23:14:42,675 - py_cui - DEBUG | Opened <class 'py_cui.popups.LoadingIconPopup'> popup with title Please Wait: Function show_loading_icon_popup in __init__.py:1268
+2021-11-07 23:14:42,676 - py_cui - INFO | Starting TwoPasswords v0.7 CUI: Function start in __init__.py:310
+2021-11-07 23:14:42,676 - py_cui - DEBUG | Popup Please Wait handling key 0: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:42,677 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:42,934 - py_cui - DEBUG | Popup Please Wait handling key 0: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:42,937 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:43,191 - py_cui - DEBUG | Popup Please Wait handling key 0: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:43,195 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:43,451 - py_cui - DEBUG | Popup Please Wait handling key 0: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:43,455 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:43,711 - py_cui - DEBUG | Popup Please Wait handling key 0: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:43,715 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:43,971 - py_cui - DEBUG | Popup Please Wait handling key 0: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:43,973 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:44,228 - py_cui - DEBUG | Popup Please Wait handling key 0: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:44,232 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:44,488 - py_cui - DEBUG | Popup Please Wait handling key 0: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:44,492 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:44,748 - py_cui - DEBUG | Popup Please Wait handling key 0: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:44,751 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:45,007 - py_cui - DEBUG | Popup Please Wait handling key 0: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:45,010 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:45,263 - py_cui - DEBUG | Popup Please Wait handling key 0: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:45,263 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:45,518 - py_cui - DEBUG | Popup Please Wait handling key 0: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:45,519 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:45,770 - py_cui - DEBUG | Popup Please Wait handling key 0: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:45,770 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:46,026 - py_cui - DEBUG | Popup Please Wait handling key 0: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:46,026 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:46,218 - py_cui - INFO | lose_focus: Not currently in focus mode: Function lose_focus in __init__.py:1062
+2021-11-07 23:14:46,218 - py_cui - DEBUG | Stopping open loading popup: Function stop_loading_popup in __init__.py:1394
+2021-11-07 23:14:46,218 - py_cui - DEBUG | Opened <class 'py_cui.popups.TextBoxPopup'> popup with title Please enter a pragma key: Function show_text_box_popup in __init__.py:1226
+2021-11-07 23:14:46,281 - py_cui - DEBUG | Popup Please enter a pragma key handling key 0: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:46,282 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:46,283 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:47,118 - py_cui - DEBUG | Popup Please enter a pragma key handling key 112: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:47,122 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:47,123 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:47,199 - py_cui - DEBUG | Popup Please enter a pragma key handling key 97: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:47,201 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:47,202 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:47,259 - py_cui - DEBUG | Popup Please enter a pragma key handling key 115: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:47,261 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:47,261 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:47,451 - py_cui - DEBUG | Popup Please enter a pragma key handling key 115: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:47,453 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:47,454 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:47,628 - py_cui - DEBUG | Popup Please enter a pragma key handling key 119: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:47,631 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:47,632 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:47,747 - py_cui - DEBUG | Popup Please enter a pragma key handling key 111: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:47,750 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:47,750 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:47,814 - py_cui - DEBUG | Popup Please enter a pragma key handling key 114: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:47,816 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:47,816 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:48,015 - py_cui - DEBUG | Popup Please enter a pragma key handling key 100: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:48,019 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:48,020 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:48,235 - py_cui - DEBUG | Popup Please enter a pragma key handling key 49: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:48,238 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:48,238 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:48,892 - py_cui - DEBUG | Popup Please enter a pragma key handling key 127: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:48,895 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:48,895 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:49,327 - py_cui - DEBUG | Popup Please enter a pragma key handling key 49: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:49,331 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:49,332 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:49,480 - py_cui - DEBUG | Popup Please enter a pragma key handling key 49: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:49,483 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:49,483 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:49,624 - py_cui - DEBUG | Popup Please enter a pragma key handling key 49: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:49,628 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:49,629 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:49,796 - py_cui - DEBUG | Popup Please enter a pragma key handling key 10: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:49,797 - py_cui - INFO | lose_focus: Not currently in focus mode: Function lose_focus in __init__.py:1062
+2021-11-07 23:14:49,797 - py_cui - DEBUG | Opened <class 'py_cui.popups.TextBoxPopup'> popup with title Please enter a pragma key: Function show_text_box_popup in __init__.py:1226
+2021-11-07 23:14:49,804 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:49,804 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:50,619 - py_cui - DEBUG | Popup Please enter a pragma key handling key 112: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:50,623 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:50,623 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:50,730 - py_cui - DEBUG | Popup Please enter a pragma key handling key 97: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:50,732 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:50,733 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:50,790 - py_cui - DEBUG | Popup Please enter a pragma key handling key 115: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:50,792 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:50,792 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:50,989 - py_cui - DEBUG | Popup Please enter a pragma key handling key 115: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:50,992 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:50,992 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:51,184 - py_cui - DEBUG | Popup Please enter a pragma key handling key 119: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:51,189 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:51,190 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:51,339 - py_cui - DEBUG | Popup Please enter a pragma key handling key 111: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:51,342 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:51,342 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:51,469 - py_cui - DEBUG | Popup Please enter a pragma key handling key 114: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:51,472 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:51,473 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:51,666 - py_cui - DEBUG | Popup Please enter a pragma key handling key 100: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:51,670 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:51,671 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:51,822 - py_cui - DEBUG | Popup Please enter a pragma key handling key 49: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:51,827 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:51,827 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:52,318 - py_cui - DEBUG | Popup Please enter a pragma key handling key 10: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:52,318 - py_cui - INFO | lose_focus: Not currently in focus mode: Function lose_focus in __init__.py:1062
+2021-11-07 23:14:52,481 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:14:52,481 - py_cui - DEBUG | Adding item list [] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:14:52,482 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:52,482 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:14:59,451 - py_cui - INFO | Detected binding for key 109, running command show_menu: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:14:59,452 - py_cui - DEBUG | Adding item list ['Help', 'Fill database with fakes', 'CLEAR DATABASE'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:14:59,452 - py_cui - DEBUG | Adding item Help to menu: Function add_item in ui.py:844
+2021-11-07 23:14:59,452 - py_cui - DEBUG | Adding item Fill database with fakes to menu: Function add_item in ui.py:844
+2021-11-07 23:14:59,452 - py_cui - DEBUG | Adding item CLEAR DATABASE to menu: Function add_item in ui.py:844
+2021-11-07 23:14:59,452 - py_cui - DEBUG | Opened <class 'py_cui.popups.MenuPopup'> popup with title Main menu: Function show_menu_popup in __init__.py:1246
+2021-11-07 23:14:59,455 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:14:59,456 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:00,437 - py_cui - DEBUG | Popup Main menu handling key 258: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:00,437 - py_cui - DEBUG | Scrolling down to item 1: Function _scroll_down in ui.py:781
+2021-11-07 23:15:00,440 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:00,441 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:00,758 - py_cui - DEBUG | Popup Main menu handling key 258: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:00,759 - py_cui - DEBUG | Scrolling down to item 2: Function _scroll_down in ui.py:781
+2021-11-07 23:15:00,763 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:00,764 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:00,971 - py_cui - DEBUG | Popup Main menu handling key 258: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:00,971 - py_cui - DEBUG | Scrolling down to item 2: Function _scroll_down in ui.py:781
+2021-11-07 23:15:00,974 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:00,975 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:01,231 - py_cui - DEBUG | Popup Main menu handling key 259: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:01,232 - py_cui - DEBUG | Scrolling up to item 1: Function _scroll_up in ui.py:769
+2021-11-07 23:15:01,236 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:01,236 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:01,401 - py_cui - DEBUG | Popup Main menu handling key 259: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:01,402 - py_cui - DEBUG | Scrolling up to item 0: Function _scroll_up in ui.py:769
+2021-11-07 23:15:01,405 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:01,405 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:01,585 - py_cui - DEBUG | Popup Main menu handling key 27: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:01,586 - py_cui - INFO | lose_focus: Not currently in focus mode: Function lose_focus in __init__.py:1062
+2021-11-07 23:15:01,586 - py_cui - INFO | lose_focus: Not currently in focus mode: Function lose_focus in __init__.py:1062
+2021-11-07 23:15:01,590 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:01,590 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:03,435 - py_cui - INFO | Detected binding for key 109, running command show_menu: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:03,436 - py_cui - DEBUG | Adding item list ['Help', 'Fill database with fakes', 'CLEAR DATABASE'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:15:03,436 - py_cui - DEBUG | Adding item Help to menu: Function add_item in ui.py:844
+2021-11-07 23:15:03,436 - py_cui - DEBUG | Adding item Fill database with fakes to menu: Function add_item in ui.py:844
+2021-11-07 23:15:03,436 - py_cui - DEBUG | Adding item CLEAR DATABASE to menu: Function add_item in ui.py:844
+2021-11-07 23:15:03,436 - py_cui - DEBUG | Opened <class 'py_cui.popups.MenuPopup'> popup with title Main menu: Function show_menu_popup in __init__.py:1246
+2021-11-07 23:15:03,439 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:03,440 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:04,453 - py_cui - DEBUG | Popup Main menu handling key 258: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:04,454 - py_cui - DEBUG | Scrolling down to item 1: Function _scroll_down in ui.py:781
+2021-11-07 23:15:04,457 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:04,458 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:04,651 - py_cui - DEBUG | Popup Main menu handling key 258: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:04,652 - py_cui - DEBUG | Scrolling down to item 2: Function _scroll_down in ui.py:781
+2021-11-07 23:15:04,656 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:04,657 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:04,830 - py_cui - DEBUG | Popup Main menu handling key 258: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:04,831 - py_cui - DEBUG | Scrolling down to item 2: Function _scroll_down in ui.py:781
+2021-11-07 23:15:04,833 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:04,834 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:05,118 - py_cui - DEBUG | Popup Main menu handling key 259: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:05,119 - py_cui - DEBUG | Scrolling up to item 1: Function _scroll_up in ui.py:769
+2021-11-07 23:15:05,122 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:05,124 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:05,265 - py_cui - DEBUG | Popup Main menu handling key 259: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:05,265 - py_cui - DEBUG | Scrolling up to item 0: Function _scroll_up in ui.py:769
+2021-11-07 23:15:05,269 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:05,270 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:05,506 - py_cui - DEBUG | Popup Main menu handling key 259: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:05,506 - py_cui - DEBUG | Scrolling up to item 0: Function _scroll_up in ui.py:769
+2021-11-07 23:15:05,508 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:05,508 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:05,697 - py_cui - DEBUG | Popup Main menu handling key 27: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:05,698 - py_cui - INFO | lose_focus: Not currently in focus mode: Function lose_focus in __init__.py:1062
+2021-11-07 23:15:05,698 - py_cui - INFO | lose_focus: Not currently in focus mode: Function lose_focus in __init__.py:1062
+2021-11-07 23:15:05,701 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:05,702 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:06,123 - py_cui - INFO | Detected binding for key 109, running command show_menu: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:06,124 - py_cui - DEBUG | Adding item list ['Help', 'Fill database with fakes', 'CLEAR DATABASE'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:15:06,124 - py_cui - DEBUG | Adding item Help to menu: Function add_item in ui.py:844
+2021-11-07 23:15:06,124 - py_cui - DEBUG | Adding item Fill database with fakes to menu: Function add_item in ui.py:844
+2021-11-07 23:15:06,124 - py_cui - DEBUG | Adding item CLEAR DATABASE to menu: Function add_item in ui.py:844
+2021-11-07 23:15:06,124 - py_cui - DEBUG | Opened <class 'py_cui.popups.MenuPopup'> popup with title Main menu: Function show_menu_popup in __init__.py:1246
+2021-11-07 23:15:06,128 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:06,129 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:06,851 - py_cui - DEBUG | Popup Main menu handling key 27: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:06,852 - py_cui - INFO | lose_focus: Not currently in focus mode: Function lose_focus in __init__.py:1062
+2021-11-07 23:15:06,852 - py_cui - INFO | lose_focus: Not currently in focus mode: Function lose_focus in __init__.py:1062
+2021-11-07 23:15:06,856 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:06,857 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:11,546 - py_cui - INFO | Detected binding for key 109, running command show_menu: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:11,546 - py_cui - DEBUG | Adding item list ['Help', 'Fill database with fakes', 'CLEAR DATABASE'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:15:11,546 - py_cui - DEBUG | Adding item Help to menu: Function add_item in ui.py:844
+2021-11-07 23:15:11,546 - py_cui - DEBUG | Adding item Fill database with fakes to menu: Function add_item in ui.py:844
+2021-11-07 23:15:11,547 - py_cui - DEBUG | Adding item CLEAR DATABASE to menu: Function add_item in ui.py:844
+2021-11-07 23:15:11,547 - py_cui - DEBUG | Opened <class 'py_cui.popups.MenuPopup'> popup with title Main menu: Function show_menu_popup in __init__.py:1246
+2021-11-07 23:15:11,550 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:11,552 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:13,154 - py_cui - DEBUG | Popup Main menu handling key 10: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:13,154 - py_cui - INFO | lose_focus: Not currently in focus mode: Function lose_focus in __init__.py:1062
+2021-11-07 23:15:13,154 - py_cui - DEBUG | Opened <class 'py_cui.popups.MessagePopup'> popup with title HELP: Function show_message_popup in __init__.py:1163
+2021-11-07 23:15:13,158 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:13,158 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:15,095 - py_cui - DEBUG | Popup HELP handling key 10: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:15,096 - py_cui - INFO | lose_focus: Not currently in focus mode: Function lose_focus in __init__.py:1062
+2021-11-07 23:15:15,098 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:15,099 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:15,975 - py_cui - INFO | Detected binding for key 109, running command show_menu: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:15,976 - py_cui - DEBUG | Adding item list ['Help', 'Fill database with fakes', 'CLEAR DATABASE'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:15:15,976 - py_cui - DEBUG | Adding item Help to menu: Function add_item in ui.py:844
+2021-11-07 23:15:15,976 - py_cui - DEBUG | Adding item Fill database with fakes to menu: Function add_item in ui.py:844
+2021-11-07 23:15:15,976 - py_cui - DEBUG | Adding item CLEAR DATABASE to menu: Function add_item in ui.py:844
+2021-11-07 23:15:15,976 - py_cui - DEBUG | Opened <class 'py_cui.popups.MenuPopup'> popup with title Main menu: Function show_menu_popup in __init__.py:1246
+2021-11-07 23:15:15,980 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:15,981 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:16,335 - py_cui - DEBUG | Popup Main menu handling key 258: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:16,335 - py_cui - DEBUG | Scrolling down to item 1: Function _scroll_down in ui.py:781
+2021-11-07 23:15:16,339 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:16,340 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:20,906 - py_cui - DEBUG | Popup Main menu handling key 10: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:20,906 - py_cui - INFO | lose_focus: Not currently in focus mode: Function lose_focus in __init__.py:1062
+2021-11-07 23:15:20,907 - py_cui - DEBUG | Opened <class 'py_cui.popups.TextBoxPopup'> popup with title How many fakes do you want?: Function show_text_box_popup in __init__.py:1226
+2021-11-07 23:15:20,911 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:20,912 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:29,520 - py_cui - DEBUG | Popup How many fakes do you want? handling key 51: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:29,523 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:29,524 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:30,314 - py_cui - DEBUG | Popup How many fakes do you want? handling key 48: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:30,317 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:30,317 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:31,116 - py_cui - DEBUG | Popup How many fakes do you want? handling key 10: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:31,116 - py_cui - INFO | lose_focus: Not currently in focus mode: Function lose_focus in __init__.py:1062
+2021-11-07 23:15:31,439 - py_cui - DEBUG | Opened <class 'py_cui.popups.MessagePopup'> popup with title Done!: Function show_message_popup in __init__.py:1163
+2021-11-07 23:15:31,440 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item list ['Bernard-Lang', 'Blair, Love and Howell', 'Blair-Ryan', 'Castro-Aguirre', 'Dunn-Steele', 'Elliott, Werner and Brady', 'Henry-Gonzalez', 'Jimenez Group', 'Jones, Williams and Ball', 'Lewis, Howard and Byrd', 'Lopez PLC', 'Mills, Serrano and Swanson', 'Myers, Owens and Williams', 'Owens, Owens and Rodgers', 'Peck, Day and Horton', 'Perez and Sons', 'Perez-Harrison', 'Reyes-Odom', 'Reynolds PLC', 'Rodriguez and Sons', 'Sims PLC', 'Sims, Murphy and Robertson', 'Smith Inc', 'Stevens-Flores', 'Taylor, Bradley and Glass', 'Taylor-Gomez', 'Vaughn, Mccoy and Liu', 'White-Pope', 'Williams-Park', 'Williams-Perez'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Bernard-Lang to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Blair, Love and Howell to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Blair-Ryan to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Castro-Aguirre to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Dunn-Steele to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Elliott, Werner and Brady to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Henry-Gonzalez to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Jimenez Group to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Jones, Williams and Ball to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Lewis, Howard and Byrd to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Lopez PLC to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Mills, Serrano and Swanson to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Myers, Owens and Williams to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Owens, Owens and Rodgers to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Peck, Day and Horton to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Perez and Sons to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Perez-Harrison to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Reyes-Odom to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Reynolds PLC to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Rodriguez and Sons to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Sims PLC to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Sims, Murphy and Robertson to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Smith Inc to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Stevens-Flores to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Taylor, Bradley and Glass to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Taylor-Gomez to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Vaughn, Mccoy and Liu to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item White-Pope to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,440 - py_cui - DEBUG | Adding item Williams-Park to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,441 - py_cui - DEBUG | Adding item Williams-Perez to menu: Function add_item in ui.py:844
+2021-11-07 23:15:31,441 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:31,442 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:31,601 - py_cui - DEBUG | Popup Done! handling key 10: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:31,601 - py_cui - INFO | lose_focus: Not currently in focus mode: Function lose_focus in __init__.py:1062
+2021-11-07 23:15:31,603 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:31,604 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:33,737 - py_cui - INFO | Detected binding for key 109, running command show_menu: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:33,738 - py_cui - DEBUG | Adding item list ['Help', 'Fill database with fakes', 'CLEAR DATABASE'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:15:33,738 - py_cui - DEBUG | Adding item Help to menu: Function add_item in ui.py:844
+2021-11-07 23:15:33,738 - py_cui - DEBUG | Adding item Fill database with fakes to menu: Function add_item in ui.py:844
+2021-11-07 23:15:33,738 - py_cui - DEBUG | Adding item CLEAR DATABASE to menu: Function add_item in ui.py:844
+2021-11-07 23:15:33,738 - py_cui - DEBUG | Opened <class 'py_cui.popups.MenuPopup'> popup with title Main menu: Function show_menu_popup in __init__.py:1246
+2021-11-07 23:15:33,744 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:33,745 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:34,275 - py_cui - DEBUG | Popup Main menu handling key 258: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:34,276 - py_cui - DEBUG | Scrolling down to item 1: Function _scroll_down in ui.py:781
+2021-11-07 23:15:34,279 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:34,280 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:34,467 - py_cui - DEBUG | Popup Main menu handling key 258: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:34,467 - py_cui - DEBUG | Scrolling down to item 2: Function _scroll_down in ui.py:781
+2021-11-07 23:15:34,473 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:34,474 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:34,618 - py_cui - DEBUG | Popup Main menu handling key 10: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:34,618 - py_cui - INFO | lose_focus: Not currently in focus mode: Function lose_focus in __init__.py:1062
+2021-11-07 23:15:34,618 - py_cui - DEBUG | Opened <class 'py_cui.popups.YesNoPopup'> popup with title ARE YOU SURE ?!: Function show_yes_no_popup in __init__.py:1208
+2021-11-07 23:15:34,624 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:34,625 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:35,059 - py_cui - DEBUG | Popup ARE YOU SURE ?!- (y/n) handling key 10: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:35,063 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:35,064 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:35,715 - py_cui - DEBUG | Popup ARE YOU SURE ?!- (y/n) handling key 121: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:35,715 - py_cui - INFO | lose_focus: Not currently in focus mode: Function lose_focus in __init__.py:1062
+2021-11-07 23:15:35,718 - py_cui - DEBUG | Opened <class 'py_cui.popups.MessagePopup'> popup with title Done!: Function show_message_popup in __init__.py:1163
+2021-11-07 23:15:35,719 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:15:35,720 - py_cui - DEBUG | Adding item list [] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:15:35,724 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:35,726 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:36,197 - py_cui - DEBUG | Popup Done! handling key 10: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:36,197 - py_cui - INFO | lose_focus: Not currently in focus mode: Function lose_focus in __init__.py:1062
+2021-11-07 23:15:36,198 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:36,199 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:36,977 - py_cui - INFO | Detected binding for key 109, running command show_menu: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:36,977 - py_cui - DEBUG | Adding item list ['Help', 'Fill database with fakes', 'CLEAR DATABASE'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:15:36,977 - py_cui - DEBUG | Adding item Help to menu: Function add_item in ui.py:844
+2021-11-07 23:15:36,978 - py_cui - DEBUG | Adding item Fill database with fakes to menu: Function add_item in ui.py:844
+2021-11-07 23:15:36,978 - py_cui - DEBUG | Adding item CLEAR DATABASE to menu: Function add_item in ui.py:844
+2021-11-07 23:15:36,978 - py_cui - DEBUG | Opened <class 'py_cui.popups.MenuPopup'> popup with title Main menu: Function show_menu_popup in __init__.py:1246
+2021-11-07 23:15:36,981 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:36,982 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:37,368 - py_cui - DEBUG | Popup Main menu handling key 258: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:37,369 - py_cui - DEBUG | Scrolling down to item 1: Function _scroll_down in ui.py:781
+2021-11-07 23:15:37,373 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:37,374 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:37,615 - py_cui - DEBUG | Popup Main menu handling key 10: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:37,616 - py_cui - INFO | lose_focus: Not currently in focus mode: Function lose_focus in __init__.py:1062
+2021-11-07 23:15:37,616 - py_cui - DEBUG | Opened <class 'py_cui.popups.TextBoxPopup'> popup with title How many fakes do you want?: Function show_text_box_popup in __init__.py:1226
+2021-11-07 23:15:37,620 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:37,622 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:38,593 - py_cui - DEBUG | Popup How many fakes do you want? handling key 51: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:38,596 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:38,597 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:38,736 - py_cui - DEBUG | Popup How many fakes do you want? handling key 48: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:38,740 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:38,741 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:39,117 - py_cui - DEBUG | Popup How many fakes do you want? handling key 10: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:39,117 - py_cui - INFO | lose_focus: Not currently in focus mode: Function lose_focus in __init__.py:1062
+2021-11-07 23:15:39,446 - py_cui - DEBUG | Opened <class 'py_cui.popups.MessagePopup'> popup with title Done!: Function show_message_popup in __init__.py:1163
+2021-11-07 23:15:39,447 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item list ['Baker Ltd', 'Cabrera and Sons', 'Day Group', 'Goodwin LLC', 'Gould, Morton and Smith', 'Hart-Medina', 'Hernandez Group', 'Herrera Group', 'Howard-Rangel', 'Jackson Inc', 'Jackson and Sons', 'King Ltd', 'Knight-Christian', 'Lane-Little', 'Lewis-Collins', 'Marshall, Barrett and George', 'Mitchell and Sons', 'Odonnell Group', 'Owen Ltd', 'Ramirez and Sons', 'Riley-Meyers', 'Robinson Inc', 'Robinson, Johnson and Brown', 'Sanchez-Clark', 'Smith, Smith and Khan', 'Sullivan and Sons', 'Thomas, Krueger and Cardenas', 'Wallace, Marshall and Ayala', 'White, Howe and Thomas', 'York-Mcclure'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Baker Ltd to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Cabrera and Sons to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Day Group to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Goodwin LLC to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Gould, Morton and Smith to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Hart-Medina to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Hernandez Group to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Herrera Group to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Howard-Rangel to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Jackson Inc to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Jackson and Sons to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item King Ltd to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Knight-Christian to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Lane-Little to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Lewis-Collins to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Marshall, Barrett and George to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Mitchell and Sons to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Odonnell Group to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Owen Ltd to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Ramirez and Sons to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Riley-Meyers to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Robinson Inc to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Robinson, Johnson and Brown to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Sanchez-Clark to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Smith, Smith and Khan to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Sullivan and Sons to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Thomas, Krueger and Cardenas to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item Wallace, Marshall and Ayala to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item White, Howe and Thomas to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,447 - py_cui - DEBUG | Adding item York-Mcclure to menu: Function add_item in ui.py:844
+2021-11-07 23:15:39,448 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:39,449 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:41,900 - py_cui - DEBUG | Popup Done! handling key 10: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:41,901 - py_cui - INFO | lose_focus: Not currently in focus mode: Function lose_focus in __init__.py:1062
+2021-11-07 23:15:41,904 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:41,905 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:43,120 - py_cui - INFO | lose_focus: Not currently in focus mode: Function lose_focus in __init__.py:1062
+2021-11-07 23:15:43,120 - py_cui - DEBUG | Setting selected widget to ID 0: Function set_selected_widget in __init__.py:1046
+2021-11-07 23:15:43,120 - py_cui - DEBUG | Moved focus to widget All accounts: 30 items: Function move_focus in __init__.py:1079
+2021-11-07 23:15:43,125 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:43,126 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:15:44,330 - py_cui - DEBUG | Exiting focus mode on widget All accounts: 30 items: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:15:44,335 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:15:44,335 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:05,406 - py_cui - INFO | lose_focus: Not currently in focus mode: Function lose_focus in __init__.py:1062
+2021-11-07 23:16:05,406 - py_cui - DEBUG | Setting selected widget to ID 0: Function set_selected_widget in __init__.py:1046
+2021-11-07 23:16:05,406 - py_cui - DEBUG | Moved focus to widget All accounts: 30 items: Function move_focus in __init__.py:1079
+2021-11-07 23:16:05,411 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:05,412 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:05,747 - py_cui - DEBUG | Widget All accounts: 30 items handling 258 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:05,748 - py_cui - DEBUG | Scrolling down to item 1: Function _scroll_down in ui.py:781
+2021-11-07 23:16:05,749 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:05,749 - py_cui - DEBUG | Adding item list ['', 'username', 'franklinanthony@example.com', 'password', '**********', '', 'website', 'http://campbell-fernandez.biz/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:05,749 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:05,749 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:05,749 - py_cui - DEBUG | Adding item franklinanthony@example.com to menu: Function add_item in ui.py:844
+2021-11-07 23:16:05,749 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:05,749 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:05,749 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:05,749 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:05,749 - py_cui - DEBUG | Adding item http://campbell-fernandez.biz/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:05,751 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:05,751 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:05,752 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:05,753 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:05,754 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:06,371 - py_cui - DEBUG | Widget All accounts: 30 items handling 258 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:06,371 - py_cui - DEBUG | Scrolling down to item 2: Function _scroll_down in ui.py:781
+2021-11-07 23:16:06,372 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:06,372 - py_cui - DEBUG | Adding item list ['', 'username', 'millerjessica@example.org', 'password', '**********', '', 'website', 'https://ferguson.biz/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:06,372 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:06,372 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:06,372 - py_cui - DEBUG | Adding item millerjessica@example.org to menu: Function add_item in ui.py:844
+2021-11-07 23:16:06,372 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:06,372 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:06,373 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:06,373 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:06,373 - py_cui - DEBUG | Adding item https://ferguson.biz/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:06,374 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:06,375 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:06,375 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:06,377 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:06,377 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:06,871 - py_cui - DEBUG | Widget All accounts: 30 items handling 258 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:06,872 - py_cui - DEBUG | Scrolling down to item 3: Function _scroll_down in ui.py:781
+2021-11-07 23:16:06,873 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:06,873 - py_cui - DEBUG | Adding item list ['', 'username', 'sarah51@example.com', 'password', '**********', '', 'website', 'http://rivera-paul.net/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:06,873 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:06,873 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:06,873 - py_cui - DEBUG | Adding item sarah51@example.com to menu: Function add_item in ui.py:844
+2021-11-07 23:16:06,873 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:06,874 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:06,874 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:06,874 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:06,874 - py_cui - DEBUG | Adding item http://rivera-paul.net/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:06,875 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:06,876 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:06,876 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:06,878 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:06,878 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:06,954 - py_cui - DEBUG | Widget All accounts: 30 items handling 258 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:06,954 - py_cui - DEBUG | Scrolling down to item 4: Function _scroll_down in ui.py:781
+2021-11-07 23:16:06,954 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:06,954 - py_cui - DEBUG | Adding item list ['', 'username', 'dana43@example.net', 'password', '**********', '', 'website', 'http://may.biz/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:06,954 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:06,955 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:06,955 - py_cui - DEBUG | Adding item dana43@example.net to menu: Function add_item in ui.py:844
+2021-11-07 23:16:06,955 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:06,955 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:06,955 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:06,955 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:06,955 - py_cui - DEBUG | Adding item http://may.biz/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:06,956 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:06,956 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:06,956 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:06,958 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:06,958 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:07,038 - py_cui - DEBUG | Widget All accounts: 30 items handling 258 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:07,038 - py_cui - DEBUG | Scrolling down to item 5: Function _scroll_down in ui.py:781
+2021-11-07 23:16:07,038 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:07,038 - py_cui - DEBUG | Adding item list ['', 'username', 'rlee@example.net', 'password', '**********', '', 'website', 'http://hamilton-cunningham.com/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:07,038 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,038 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,038 - py_cui - DEBUG | Adding item rlee@example.net to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,039 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,039 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,039 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,039 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,039 - py_cui - DEBUG | Adding item http://hamilton-cunningham.com/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,040 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,040 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,040 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,041 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:07,041 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:07,121 - py_cui - DEBUG | Widget All accounts: 30 items handling 258 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:07,121 - py_cui - DEBUG | Scrolling down to item 6: Function _scroll_down in ui.py:781
+2021-11-07 23:16:07,122 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:07,122 - py_cui - DEBUG | Adding item list ['', 'username', 'leonardashley@example.net', 'password', '**********', '', 'website', 'http://poole-griffin.net/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:07,122 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,122 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,122 - py_cui - DEBUG | Adding item leonardashley@example.net to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,122 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,122 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,122 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,122 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,122 - py_cui - DEBUG | Adding item http://poole-griffin.net/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,123 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,123 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,123 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,124 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:07,125 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:07,204 - py_cui - DEBUG | Widget All accounts: 30 items handling 258 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:07,204 - py_cui - DEBUG | Scrolling down to item 7: Function _scroll_down in ui.py:781
+2021-11-07 23:16:07,205 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:07,205 - py_cui - DEBUG | Adding item list ['', 'username', 'cbecker@example.net', 'password', '**********', '', 'website', 'https://www.reid-vaughan.net/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:07,205 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,205 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,205 - py_cui - DEBUG | Adding item cbecker@example.net to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,205 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,205 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,205 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,205 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,205 - py_cui - DEBUG | Adding item https://www.reid-vaughan.net/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,206 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,206 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,207 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,208 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:07,208 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:07,286 - py_cui - DEBUG | Widget All accounts: 30 items handling 258 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:07,286 - py_cui - DEBUG | Scrolling down to item 8: Function _scroll_down in ui.py:781
+2021-11-07 23:16:07,287 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:07,287 - py_cui - DEBUG | Adding item list ['', 'username', 'amanda00@example.org', 'password', '**********', '', 'website', 'http://glover.com/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:07,287 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,287 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,287 - py_cui - DEBUG | Adding item amanda00@example.org to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,287 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,287 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,287 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,287 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,287 - py_cui - DEBUG | Adding item http://glover.com/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,288 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,288 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,289 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,290 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:07,290 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:07,371 - py_cui - DEBUG | Widget All accounts: 30 items handling 258 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:07,371 - py_cui - DEBUG | Scrolling down to item 9: Function _scroll_down in ui.py:781
+2021-11-07 23:16:07,372 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:07,372 - py_cui - DEBUG | Adding item list ['', 'username', 'jillmiller@example.org', 'password', '**********', '', 'website', 'http://cook.com/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:07,372 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,372 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,372 - py_cui - DEBUG | Adding item jillmiller@example.org to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,372 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,372 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,372 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,372 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,372 - py_cui - DEBUG | Adding item http://cook.com/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,374 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,374 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,374 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,375 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:07,375 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:07,453 - py_cui - DEBUG | Widget All accounts: 30 items handling 258 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:07,453 - py_cui - DEBUG | Scrolling down to item 10: Function _scroll_down in ui.py:781
+2021-11-07 23:16:07,453 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:07,453 - py_cui - DEBUG | Adding item list ['', 'username', 'nathaniel86@example.net', 'password', '**********', '', 'website', 'http://brown.info/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:07,453 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,453 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,453 - py_cui - DEBUG | Adding item nathaniel86@example.net to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,453 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,454 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,454 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,454 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,454 - py_cui - DEBUG | Adding item http://brown.info/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,455 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,455 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,455 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,455 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:07,456 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:07,539 - py_cui - DEBUG | Widget All accounts: 30 items handling 258 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:07,539 - py_cui - DEBUG | Scrolling down to item 11: Function _scroll_down in ui.py:781
+2021-11-07 23:16:07,540 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:07,540 - py_cui - DEBUG | Adding item list ['', 'username', 'bvaldez@example.org', 'password', '**********', '', 'website', 'https://www.bowers.com/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:07,540 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,540 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,540 - py_cui - DEBUG | Adding item bvaldez@example.org to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,540 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,540 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,540 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,540 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,541 - py_cui - DEBUG | Adding item https://www.bowers.com/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,542 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,542 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,542 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,544 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:07,544 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:07,623 - py_cui - DEBUG | Widget All accounts: 30 items handling 258 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:07,623 - py_cui - DEBUG | Scrolling down to item 12: Function _scroll_down in ui.py:781
+2021-11-07 23:16:07,623 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:07,623 - py_cui - DEBUG | Adding item list ['', 'username', 'janet11@example.org', 'password', '**********', '', 'website', 'http://www.parrish-pratt.info/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:07,624 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,624 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,624 - py_cui - DEBUG | Adding item janet11@example.org to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,624 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,624 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,624 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,624 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,624 - py_cui - DEBUG | Adding item http://www.parrish-pratt.info/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,625 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,625 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,626 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,627 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:07,627 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:07,707 - py_cui - DEBUG | Widget All accounts: 30 items handling 258 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:07,707 - py_cui - DEBUG | Scrolling down to item 13: Function _scroll_down in ui.py:781
+2021-11-07 23:16:07,707 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:07,708 - py_cui - DEBUG | Adding item list ['', 'username', 'lisa64@example.net', 'password', '**********', '', 'website', 'https://clark.com/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:07,708 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,708 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,708 - py_cui - DEBUG | Adding item lisa64@example.net to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,708 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,708 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,708 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,708 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,708 - py_cui - DEBUG | Adding item https://clark.com/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,709 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,709 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,709 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,711 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:07,711 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:07,791 - py_cui - DEBUG | Widget All accounts: 30 items handling 258 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:07,791 - py_cui - DEBUG | Scrolling down to item 14: Function _scroll_down in ui.py:781
+2021-11-07 23:16:07,792 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:07,792 - py_cui - DEBUG | Adding item list ['', 'username', 'tracywalker@example.com', 'password', '**********', '', 'website', 'http://www.kirby-davis.com/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:07,792 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,792 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,792 - py_cui - DEBUG | Adding item tracywalker@example.com to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,792 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,792 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,792 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,792 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,793 - py_cui - DEBUG | Adding item http://www.kirby-davis.com/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,794 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,794 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,794 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,796 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:07,796 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:07,874 - py_cui - DEBUG | Widget All accounts: 30 items handling 258 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:07,874 - py_cui - DEBUG | Scrolling down to item 15: Function _scroll_down in ui.py:781
+2021-11-07 23:16:07,875 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:07,875 - py_cui - DEBUG | Adding item list ['', 'username', 'probbins@example.net', 'password', '**********', '', 'website', 'https://young-sanchez.com/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:07,875 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,875 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,875 - py_cui - DEBUG | Adding item probbins@example.net to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,875 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,875 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,875 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,875 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,875 - py_cui - DEBUG | Adding item https://young-sanchez.com/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,876 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,876 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,877 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,878 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:07,878 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:07,958 - py_cui - DEBUG | Widget All accounts: 30 items handling 258 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:07,958 - py_cui - DEBUG | Scrolling down to item 16: Function _scroll_down in ui.py:781
+2021-11-07 23:16:07,958 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:07,958 - py_cui - DEBUG | Adding item list ['', 'username', 'fowlermichael@example.com', 'password', '**********', '', 'website', 'https://www.webb-paul.com/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:07,958 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,958 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,959 - py_cui - DEBUG | Adding item fowlermichael@example.com to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,959 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,959 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,959 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,959 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,959 - py_cui - DEBUG | Adding item https://www.webb-paul.com/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:07,960 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,960 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,960 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:07,961 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:07,961 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:08,039 - py_cui - DEBUG | Widget All accounts: 30 items handling 258 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:08,039 - py_cui - DEBUG | Scrolling down to item 17: Function _scroll_down in ui.py:781
+2021-11-07 23:16:08,040 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:08,040 - py_cui - DEBUG | Adding item list ['', 'username', 'douglas67@example.org', 'password', '**********', '', 'website', 'https://www.stewart.com/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:08,040 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,040 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,040 - py_cui - DEBUG | Adding item douglas67@example.org to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,040 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,040 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,040 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,040 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,040 - py_cui - DEBUG | Adding item https://www.stewart.com/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,040 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:08,040 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:08,040 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:08,041 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:08,041 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:08,125 - py_cui - DEBUG | Widget All accounts: 30 items handling 258 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:08,125 - py_cui - DEBUG | Scrolling down to item 18: Function _scroll_down in ui.py:781
+2021-11-07 23:16:08,126 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:08,126 - py_cui - DEBUG | Adding item list ['', 'username', 'manuelperez@example.org', 'password', '**********', '', 'website', 'http://www.sweeney-harris.com/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:08,126 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,126 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,126 - py_cui - DEBUG | Adding item manuelperez@example.org to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,126 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,126 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,126 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,126 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,127 - py_cui - DEBUG | Adding item http://www.sweeney-harris.com/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,128 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:08,128 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:08,128 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:08,130 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:08,130 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:08,209 - py_cui - DEBUG | Widget All accounts: 30 items handling 258 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:08,209 - py_cui - DEBUG | Scrolling down to item 19: Function _scroll_down in ui.py:781
+2021-11-07 23:16:08,210 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:08,210 - py_cui - DEBUG | Adding item list ['', 'username', 'cynthiamartinez@example.com', 'password', '**********', '', 'website', 'https://rodgers-bennett.com/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:08,210 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,210 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,210 - py_cui - DEBUG | Adding item cynthiamartinez@example.com to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,210 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,210 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,210 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,210 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,210 - py_cui - DEBUG | Adding item https://rodgers-bennett.com/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,211 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:08,212 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:08,212 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:08,213 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:08,213 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:08,294 - py_cui - DEBUG | Widget All accounts: 30 items handling 258 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:08,295 - py_cui - DEBUG | Scrolling down to item 20: Function _scroll_down in ui.py:781
+2021-11-07 23:16:08,295 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:08,295 - py_cui - DEBUG | Adding item list ['', 'username', 'brittanyjohnson@example.com', 'password', '**********', '', 'website', 'http://www.gardner.com/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:08,295 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,296 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,296 - py_cui - DEBUG | Adding item brittanyjohnson@example.com to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,296 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,296 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,296 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,296 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,296 - py_cui - DEBUG | Adding item http://www.gardner.com/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,297 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:08,298 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:08,298 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:08,299 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:08,299 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:08,378 - py_cui - DEBUG | Widget All accounts: 30 items handling 258 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:08,378 - py_cui - DEBUG | Scrolling down to item 21: Function _scroll_down in ui.py:781
+2021-11-07 23:16:08,379 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:08,379 - py_cui - DEBUG | Adding item list ['', 'username', 'gregoryroberts@example.net', 'password', '**********', '', 'website', 'https://www.hernandez.com/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:08,379 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,379 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,379 - py_cui - DEBUG | Adding item gregoryroberts@example.net to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,379 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,379 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,379 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,379 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,379 - py_cui - DEBUG | Adding item https://www.hernandez.com/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,380 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:08,380 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:08,381 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:08,382 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:08,382 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:08,542 - py_cui - DEBUG | Widget All accounts: 30 items handling 259 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:08,543 - py_cui - DEBUG | Scrolling up to item 20: Function _scroll_up in ui.py:769
+2021-11-07 23:16:08,544 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:08,544 - py_cui - DEBUG | Adding item list ['', 'username', 'brittanyjohnson@example.com', 'password', '**********', '', 'website', 'http://www.gardner.com/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:08,544 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,544 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,544 - py_cui - DEBUG | Adding item brittanyjohnson@example.com to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,544 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,544 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,544 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,544 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,544 - py_cui - DEBUG | Adding item http://www.gardner.com/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:08,546 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:08,546 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:08,546 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:08,548 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:08,548 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:09,041 - py_cui - DEBUG | Widget All accounts: 30 items handling 259 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:09,042 - py_cui - DEBUG | Scrolling up to item 19: Function _scroll_up in ui.py:769
+2021-11-07 23:16:09,042 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:09,042 - py_cui - DEBUG | Adding item list ['', 'username', 'cynthiamartinez@example.com', 'password', '**********', '', 'website', 'https://rodgers-bennett.com/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:09,042 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,042 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,042 - py_cui - DEBUG | Adding item cynthiamartinez@example.com to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,042 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,042 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,043 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,043 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,043 - py_cui - DEBUG | Adding item https://rodgers-bennett.com/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,044 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:09,044 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:09,044 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:09,046 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:09,046 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:09,124 - py_cui - DEBUG | Widget All accounts: 30 items handling 259 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:09,124 - py_cui - DEBUG | Scrolling up to item 18: Function _scroll_up in ui.py:769
+2021-11-07 23:16:09,125 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:09,125 - py_cui - DEBUG | Adding item list ['', 'username', 'manuelperez@example.org', 'password', '**********', '', 'website', 'http://www.sweeney-harris.com/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:09,125 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,125 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,125 - py_cui - DEBUG | Adding item manuelperez@example.org to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,125 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,125 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,125 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,125 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,125 - py_cui - DEBUG | Adding item http://www.sweeney-harris.com/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,126 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:09,126 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:09,126 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:09,128 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:09,128 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:09,208 - py_cui - DEBUG | Widget All accounts: 30 items handling 259 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:09,208 - py_cui - DEBUG | Scrolling up to item 17: Function _scroll_up in ui.py:769
+2021-11-07 23:16:09,209 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:09,209 - py_cui - DEBUG | Adding item list ['', 'username', 'douglas67@example.org', 'password', '**********', '', 'website', 'https://www.stewart.com/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:09,209 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,209 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,209 - py_cui - DEBUG | Adding item douglas67@example.org to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,209 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,209 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,209 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,209 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,209 - py_cui - DEBUG | Adding item https://www.stewart.com/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,211 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:09,211 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:09,211 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:09,213 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:09,213 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:09,291 - py_cui - DEBUG | Widget All accounts: 30 items handling 259 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:09,292 - py_cui - DEBUG | Scrolling up to item 16: Function _scroll_up in ui.py:769
+2021-11-07 23:16:09,292 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:09,292 - py_cui - DEBUG | Adding item list ['', 'username', 'fowlermichael@example.com', 'password', '**********', '', 'website', 'https://www.webb-paul.com/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:09,292 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,293 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,293 - py_cui - DEBUG | Adding item fowlermichael@example.com to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,293 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,293 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,293 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,293 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,293 - py_cui - DEBUG | Adding item https://www.webb-paul.com/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,294 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:09,294 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:09,294 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:09,296 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:09,296 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:09,375 - py_cui - DEBUG | Widget All accounts: 30 items handling 259 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:09,375 - py_cui - DEBUG | Scrolling up to item 15: Function _scroll_up in ui.py:769
+2021-11-07 23:16:09,375 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:09,375 - py_cui - DEBUG | Adding item list ['', 'username', 'probbins@example.net', 'password', '**********', '', 'website', 'https://young-sanchez.com/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:09,375 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,375 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,375 - py_cui - DEBUG | Adding item probbins@example.net to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,376 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,376 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,376 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,376 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,376 - py_cui - DEBUG | Adding item https://young-sanchez.com/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,377 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:09,377 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:09,377 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:09,378 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:09,378 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:09,457 - py_cui - DEBUG | Widget All accounts: 30 items handling 259 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:09,457 - py_cui - DEBUG | Scrolling up to item 14: Function _scroll_up in ui.py:769
+2021-11-07 23:16:09,459 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:09,459 - py_cui - DEBUG | Adding item list ['', 'username', 'tracywalker@example.com', 'password', '**********', '', 'website', 'http://www.kirby-davis.com/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:09,459 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,459 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,459 - py_cui - DEBUG | Adding item tracywalker@example.com to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,459 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,459 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,459 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,459 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,459 - py_cui - DEBUG | Adding item http://www.kirby-davis.com/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,460 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:09,460 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:09,460 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:09,462 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:09,462 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:09,541 - py_cui - DEBUG | Widget All accounts: 30 items handling 259 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:09,542 - py_cui - DEBUG | Scrolling up to item 13: Function _scroll_up in ui.py:769
+2021-11-07 23:16:09,542 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:09,542 - py_cui - DEBUG | Adding item list ['', 'username', 'lisa64@example.net', 'password', '**********', '', 'website', 'https://clark.com/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:09,542 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,542 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,542 - py_cui - DEBUG | Adding item lisa64@example.net to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,542 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,542 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,542 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,542 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,542 - py_cui - DEBUG | Adding item https://clark.com/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,543 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:09,543 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:09,543 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:09,545 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:09,545 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:09,624 - py_cui - DEBUG | Widget All accounts: 30 items handling 259 key: Function _handle_key_presses in __init__.py:1524
+2021-11-07 23:16:09,624 - py_cui - DEBUG | Scrolling up to item 12: Function _scroll_up in ui.py:769
+2021-11-07 23:16:09,624 - py_cui - INFO | Clearing menu: Function clear in ui.py:688
+2021-11-07 23:16:09,624 - py_cui - DEBUG | Adding item list ['', 'username', 'janet11@example.org', 'password', '**********', '', 'website', 'http://www.parrish-pratt.info/'] to menu: Function add_item_list in ui.py:857
+2021-11-07 23:16:09,624 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,624 - py_cui - DEBUG | Adding item username to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,624 - py_cui - DEBUG | Adding item janet11@example.org to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,624 - py_cui - DEBUG | Adding item password to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,624 - py_cui - DEBUG | Adding item ********** to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,624 - py_cui - DEBUG | Adding item  to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,625 - py_cui - DEBUG | Adding item website to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,625 - py_cui - DEBUG | Adding item http://www.parrish-pratt.info/ to menu: Function add_item in ui.py:844
+2021-11-07 23:16:09,625 - py_cui - DEBUG | Generated fragments: [['username                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:09,626 - py_cui - DEBUG | Generated fragments: [['password                                                                                                                      ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:09,626 - py_cui - DEBUG | Generated fragments: [['website                                                                                                                       ', 4]]: Function generate_fragments in colors.py:326
+2021-11-07 23:16:09,627 - py_cui - INFO | Drew widgets: Function _draw_widgets in __init__.py:1457
+2021-11-07 23:16:09,627 - py_cui - INFO | Waiting for next keypress: Function _draw in __init__.py:1590
+2021-11-07 23:16:26,218 - py_cui - INFO | Detect Keyboard Interrupt, Exiting...: Function _draw in __init__.py:1590
+2021-11-07 23:16:26,219 - py_cui - DEBUG | Firing onstop function say_bye: Function _draw in __init__.py:1590

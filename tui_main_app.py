@@ -194,7 +194,7 @@ class TwoPasswordsApp:
         """
         Displays popup menu with supported commands
         """
-        options_list = ["Menu option 1", "Menu option 2", "Menu option 3"]
+        options_list = ["Help", "Fill database with fakes", "CLEAR DATABASE"]
         self.root.show_menu_popup(
             "Main menu",
             options_list,
@@ -207,15 +207,41 @@ class TwoPasswordsApp:
         """
         if option == "Help":
             self.show_help()
-        elif option == "Menu option 2":
-            self.show_help()
-        elif option == "Menu option 3":
-            self.show_help()
+        elif option == "Fill database with fakes":
+            self.show_fill_fakes_popup()
+        elif option == "CLEAR DATABASE":
+            self.show_clear_database_popup()
 
     ################ HANDLE ARROW KEY PRESSES IN ALL ACCOUNTS MENU ################
     def handle_all_accounts_menu_arrows(self, item):
         current_account = self.database.get_exact_account(item)
         self.populate_account_card(current_account)
+
+    ################ Fill database with Fakes! ################
+    def show_clear_database_popup(self):
+        self.root.show_yes_no_popup("ARE YOU SURE ?!", self.clear_database)
+
+    def clear_database(self, to_clear):
+        if to_clear:
+            self.database.clear_database()
+            self.root.show_message_popup("Done!", f"Database was cleared")
+            self.read_database()
+
+        else:
+            self.root.show_message_popup("Database clear was cancelled")
+
+    ################ Fill database with Fakes! ################
+    def show_fill_fakes_popup(self):
+        self.root.show_text_box_popup("How many fakes do you want?", self.fill_fakes)
+
+    def fill_fakes(self, number: str):
+        for i in range(int(number)):
+            new_account = Account.from_faker()
+            self.database.add_account(new_account)
+        self.root.show_message_popup(
+            "Done!", f"Database was filled with {number} fake accounts"
+        )
+        self.read_database()
 
     ################ ADD FORM ################
     def show_add_form(self):
