@@ -1,3 +1,11 @@
+#TODO:
+0. IMPORT / EXPORT from menu
+1. dotenv -> config.py
+2. pragma -> ???
+3. sqlite3 -> sqlalchemy ???
+
+
+
 # Installation notes:
 
 ### ffmpeg for a latest OpenCV version

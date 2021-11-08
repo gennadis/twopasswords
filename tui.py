@@ -1,14 +1,13 @@
-import py_cui
 import os
-import sys
-import logging
 import dotenv
+import py_cui
+import logging
 import pyperclip
 import threading
 import webbrowser
-from datetime import datetime
-from facescan import FaceScan
 from time import sleep
+from datetime import date, datetime
+from facescan import FaceScan
 from database import Account, DatabaseEngine
 from password_generator import PasswordGenerator
 
@@ -65,6 +64,7 @@ class TwoPasswordsApp:
         self.all_accounts_menu.set_on_selection_change_event(
             on_selection_change_event=self.handle_all_accounts_menu_arrows
         )
+
         # --------------- MAMMA MIA!!!
 
         self.all_accounts_menu.set_help_text(
@@ -90,11 +90,27 @@ class TwoPasswordsApp:
             "notes", py_cui.CYAN_ON_BLACK, "startswith"
         )
         self.account_card_block.add_text_color_rule(
-            "created", py_cui.CYAN_ON_BLACK, "startswith"
+            "created:",
+            py_cui.CYAN_ON_BLACK,
+            "startswith",
+            match_type="region",
+            region=[0, 8],
+            include_whitespace=True,
         )
         self.account_card_block.add_text_color_rule(
-            "modified", py_cui.CYAN_ON_BLACK, "startswith"
+            "last modified:",
+            py_cui.CYAN_ON_BLACK,
+            "startswith",
+            match_type="region",
+            region=[0, 14],
+            include_whitespace=True,
         )
+        # self.account_card_block.add_text_color_rule(
+        #     "created:", py_cui.CYAN_ON_BLACK, "startswith"
+        # )
+        # self.account_card_block.add_text_color_rule(
+        #     "last modified:", py_cui.CYAN_ON_BLACK, "startswith"
+        # )
 
         self.account_card_block.set_help_text(
             "|  (r)eveal password |  (c)opy password  |  (e)dit  |  (d)elete  |  Arrows - scroll, Esc - exit"
@@ -133,7 +149,7 @@ class TwoPasswordsApp:
     ################ INITIALIZE AUTH PROCESS ################
 
     def show_facescan_popup(self) -> None:
-        self.root.show_loading_icon_popup("Please Wait", "Scanning your face...")
+        self.root.show_loading_icon_popup("Please Wait", "Scanning your face")
         self.operation_thread = threading.Thread(target=self.scan_face)
         self.operation_thread.start()
 
@@ -177,6 +193,7 @@ class TwoPasswordsApp:
     def check_pragma(self, pragma):
         if pragma == DB_PASSWORD:
             self.read_database()
+            self.root.move_focus(self.search_textbox)
         else:
             self.show_enter_pragma_box()
 
@@ -197,7 +214,7 @@ class TwoPasswordsApp:
             "########## ###         ########  ",
             "2passwords ###          ######   ",
         ]
-
+        self.account_card_block.set_title("2passwords")
         return logo
 
     ################ MAIN MENU ################
@@ -237,6 +254,8 @@ class TwoPasswordsApp:
             self.database.clear_database()
             self.root.show_message_popup("Done!", f"Database was cleared")
             self.read_database()
+            self.account_card_block.clear()
+            self.account_card_block.add_item_list(self.get_logo())
 
         else:
             self.root.show_message_popup("Database clear was cancelled")
@@ -302,9 +321,13 @@ class TwoPasswordsApp:
         self.read_database(preserve_selected=True)
         self.populate_account_card(new_account)
 
+        new_account_idx = self.all_accounts_menu.get_item_list().index(new_account.item)
+        self.all_accounts_menu.set_selected_item_index(new_account_idx)
+
         self.root.show_message_popup(
             "Done", f"Account for {new_account.url} added successfully."
         )
+        self.root.move_focus(self.account_card_block)
 
     ################ EDIT FORM ################
     def show_edit_form(self):
@@ -382,7 +405,7 @@ class TwoPasswordsApp:
     def populate_account_card(self, account: Account, reveal_password: bool = False):
         self.account_card_block.clear()
         self.account_card_block.set_title(account.item)
-
+        date_format = account.date_created
         structure = [
             "",
             "username",
@@ -397,15 +420,20 @@ class TwoPasswordsApp:
             account.notes,
             "",
             "",
-            "created",
-            account.date_created,
-            "modified",
-            account.date_modified,
+            f"created: {self.format_date(account.date_created)}",
+            f"last modified: {self.format_date(account.date_modified)}",
         ]
         if reveal_password:
             structure[4] = account.password  # populate card with password revealed
 
         self.account_card_block.add_item_list(structure)
+
+    @staticmethod
+    def format_date(datetime_string: str):
+        datetime_object = datetime.strptime(datetime_string, "%Y-%m-%d %H:%M:%S")
+        new_datetime_object = datetime.strftime(datetime_object, "%d %b %Y at %H:%M")
+
+        return new_datetime_object
 
     ################ SEARCH FUNCTION ################
     def search_account_card(self) -> None:
