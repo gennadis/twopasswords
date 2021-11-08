@@ -6,6 +6,7 @@ import dotenv
 import pyperclip
 import threading
 import webbrowser
+from datetime import datetime
 from facescan import FaceScan
 from time import sleep
 from database import Account, DatabaseEngine
@@ -85,6 +86,16 @@ class TwoPasswordsApp:
         self.account_card_block.add_text_color_rule(
             "website", py_cui.CYAN_ON_BLACK, "startswith"
         )
+        self.account_card_block.add_text_color_rule(
+            "notes", py_cui.CYAN_ON_BLACK, "startswith"
+        )
+        self.account_card_block.add_text_color_rule(
+            "created", py_cui.CYAN_ON_BLACK, "startswith"
+        )
+        self.account_card_block.add_text_color_rule(
+            "modified", py_cui.CYAN_ON_BLACK, "startswith"
+        )
+
         self.account_card_block.set_help_text(
             "|  (r)eveal password |  (c)opy password  |  (e)dit  |  (d)elete  |  Arrows - scroll, Esc - exit"
         )
@@ -256,6 +267,7 @@ class TwoPasswordsApp:
                 "Website",
                 "Username",
                 "Password: custom or (x)kcd, (r)andom, (p)in",
+                "Notes",
             ],
             # passwd_fields=["Password"],
             required=["Username", "Password"],
@@ -281,6 +293,9 @@ class TwoPasswordsApp:
             form_output["Website"],
             form_output["Username"],
             new_password,
+            form_output["Notes"],
+            datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         )
 
         self.database.add_account(new_account)
@@ -377,6 +392,15 @@ class TwoPasswordsApp:
             "",
             "website",
             account.url,
+            "",
+            "notes",
+            account.notes,
+            "",
+            "",
+            "created",
+            account.date_created,
+            "modified",
+            account.date_modified,
         ]
         if reveal_password:
             structure[4] = account.password  # populate card with password revealed
@@ -429,11 +453,11 @@ class TwoPasswordsApp:
         self.populate_account_card(account_info)
         self.root.move_focus(self.account_card_block)
 
-    @staticmethod
-    def normalize_url(url: str) -> str:
-        return url[1].split("//")[1].replace("www.", "")
+    # @staticmethod
+    # def normalize_url(url: str) -> str:
+    #     return url[1].split("//")[1].replace("www.", "")
 
-    ################ COPY TO CLIPBOARD ################
+    # ################ COPY TO CLIPBOARD ################
     def copy_password(self):
         account_title = self.account_card_block.get_title()
         account = self.database.get_account(account_title)

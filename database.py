@@ -1,7 +1,7 @@
 from __future__ import annotations
 import os
 import dotenv
-from typing import List
+from datetime import datetime
 from sqlcipher3 import dbapi2 as sqlite3
 from faker import Faker
 from password_generator import PasswordGenerator
@@ -28,6 +28,9 @@ def create_db(path: str, password: str, to_create=False) -> None:
             3. url TEXT
             4. username TEXT
             5. password TEXT
+            6. notes TEXT
+            7. date_created TEXT
+            8. date_modified TEXT
     """
     if to_create:
         connection = sqlite3.connect(path)
@@ -41,7 +44,10 @@ def create_db(path: str, password: str, to_create=False) -> None:
             item TEXT,
             url TEXT,
             username TEXT,
-            password TEXT
+            password TEXT,
+            notes TEXT,
+            date_created TEXT,
+            date_modified TEXT
             )"""
         )
         connection.commit()
@@ -61,12 +67,15 @@ class DatabaseEngine:
 
     def add_account(self, account: Account) -> None:
         self.cursor.execute(
-            "INSERT INTO accounts (item, url, username, password) VALUES (:item, :url, :username, :password)",
+            "INSERT INTO accounts (item, url, username, password, notes, date_created, date_modified) VALUES (:item, :url, :username, :password, :notes, :date_created, :date_modified)",
             {
                 "item": account.item,
                 "url": account.url,
                 "username": account.username,
                 "password": account.password,
+                "notes": account.notes,
+                "date_created": account.date_created,
+                "date_modified": account.date_modified,
             },
         )
 
@@ -92,12 +101,15 @@ class DatabaseEngine:
 
     def update_account(self, account: Account, password: str) -> None:
         self.cursor.execute(
-            "UPDATE accounts SET password=:password WHERE url=:url AND username=:username",
+            "UPDATE accounts SET password=:password, date_modified=:date_modified WHERE url=:url AND username=:username",
             {
                 "item": account.item,
                 "url": account.url,
                 "username": account.username,
                 "password": password,
+                "notes": account.notes,
+                "date_created": account.date_created,
+                "date_modified": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             },
         )
 
@@ -112,11 +124,23 @@ class DatabaseEngine:
 
 
 class Account:
-    def __init__(self, item: str, url: str, username: str, password: str):
+    def __init__(
+        self,
+        item: str,
+        url: str,
+        username: str,
+        password: str,
+        notes: str,
+        date_created: str,
+        date_modified: str,
+    ):
         self.item = item
         self.url = url
         self.username = username
         self.password = password
+        self.notes = notes
+        self.date_created = date_created
+        self.date_modified = date_modified
 
     @classmethod
     def from_faker(cls):
@@ -125,10 +149,13 @@ class Account:
         url = faker.url()
         username = faker.safe_email()
         password = PasswordGenerator("random", 8).generate_password()
-        return cls(item, url, username, password)
+        notes = "Some fake account created with Faker"
+        date_created = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        date_modified = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        return cls(item, url, username, password, notes, date_created, date_modified)
 
     def __repr__(self) -> str:
-        return f"Account(item={self.item}, url={self.url}, username={self.username}, password={self.password})"
+        return f"Account(item={self.item}, url={self.url}, username={self.username}, password={self.password}, notes={self.notes}, date_created={self.date_created}, date_modified={self.date_modified})"
 
 
 if __name__ == "__main__":
