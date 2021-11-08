@@ -4,4 +4,6 @@ venv/
 *.jpg
 *.sqlite
 .env
+.log
+
 __pycache__
