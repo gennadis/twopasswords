@@ -1,15 +1,16 @@
 import os
+import json
 import dotenv
 import py_cui
 import logging
 import pyperclip
 import threading
 import webbrowser
-from time import sleep
 from datetime import date, datetime
 from facescan import FaceScan
 from database import Account, DatabaseEngine
 from password_generator import PasswordGenerator
+
 
 dotenv.load_dotenv()
 DB_PATH = os.environ.get("DB_PATH")
@@ -222,7 +223,13 @@ class TwoPasswordsApp:
         """
         Displays popup menu with supported commands
         """
-        options_list = ["Help", "Fill database with fakes", "CLEAR DATABASE"]
+        options_list = [
+            "Help",
+            "Fill database with fakes",
+            "CLEAR DATABASE",
+            "Import JSON",
+            "Export JSON",
+        ]
         self.root.show_menu_popup(
             "Main menu",
             options_list,
@@ -239,6 +246,76 @@ class TwoPasswordsApp:
             self.show_fill_fakes_popup()
         elif option == "CLEAR DATABASE":
             self.show_clear_database_popup()
+        elif option == "Import JSON":
+            self.show_import_popup()
+        elif option == "Export JSON":
+            self.show_export_popup()
+
+    ################ IMPORT JSON ################
+    def show_import_popup(self):
+        self.root.show_filedialog_popup(
+            popup_type="openfile",
+            initial_dir=".",
+            callback=self.import_json,
+            ascii_icons=True,
+            limit_extensions=[".json"],
+        )
+
+    def import_json(self, filename):
+        with open(filename, "r") as open_file:
+            content = json.load(open_file)
+
+        for element in content:
+            account = Account(
+                item=element.get("item"),
+                url=element.get("url"),
+                username=element.get("username"),
+                password=element.get("password"),
+                notes=element.get("notes"),
+                date_created=element.get("date_created"),
+                date_modified=element.get("date_modified"),
+            )
+            self.database.add_account(account)
+
+        self.root.show_message_popup(
+            "Import Done!", f"{len(content)} items were imported from {filename}.json"
+        )
+        self.read_database()
+
+    ################ EXPORT JSON ################
+    def show_export_popup(self):
+        self.root.show_filedialog_popup(
+            popup_type="saveas",
+            callback=self.export_json,
+            initial_dir=".",
+            ascii_icons=True,
+            limit_extensions=[".json"],
+        )
+
+    def export_json(self, filename):
+        out = []
+        accounts = self.database.get_all_accounts()
+        for account in accounts:
+            out.append(
+                {
+                    "item": account.item,
+                    "url": account.url,
+                    "username": account.username,
+                    "password": account.password,
+                    "notes": account.notes,
+                    "date_created": account.date_created,
+                    "date_modified": account.date_modified,
+                }
+            )
+
+        export_data = json.dumps(out)
+        with open(filename, "w") as save_file:
+            save_file.write(export_data)
+
+        self.root.show_message_popup(
+            "Export Done!", f"{len(accounts)} items were exported to {filename}.json"
+        )
+        self.read_database()
 
     ################ HANDLE ARROW KEY PRESSES IN ALL ACCOUNTS MENU ################
     def handle_all_accounts_menu_arrows(self, item):
@@ -526,8 +603,9 @@ class TwoPasswordsApp:
             selected_account: int = self.all_accounts_menu.get_selected_item_index()
             self.database.safe_push()
             accounts = sorted(
-                [account[1] for account in self.database.get_all_accounts()]
+                account.item for account in self.database.get_all_accounts()
             )
+
             self.populate_all_accounts_menu(accounts)
 
             if preserve_selected:

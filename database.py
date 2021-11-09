@@ -97,7 +97,7 @@ class DatabaseEngine:
 
     def get_all_accounts(self) -> list:
         self.cursor.execute("SELECT * FROM accounts")
-        return self.cursor.fetchall()
+        return [Account(*account[1:]) for account in self.cursor.fetchall()]
 
     def update_account(self, account: Account, password: str) -> None:
         self.cursor.execute(
