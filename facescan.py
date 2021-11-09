@@ -125,12 +125,3 @@ class FaceScan:
             return -1
 
         return 1
-
-
-if __name__ == "__main__":
-
-    load_dotenv()
-    new_picture = os.environ.get("LAST_IMAGE_PATH")
-    user_picture = os.environ.get("USER_FACE")
-
-    print(FaceScan(user_picture, new_picture).auth())

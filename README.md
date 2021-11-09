@@ -1,7 +1,6 @@
 #TODO:
 1. dotenv -> config.py
-2. pragma -> ???
-3. sqlite3 -> sqlalchemy ???
+2. sqlite3 -> sqlalchemy ???
 
 
 

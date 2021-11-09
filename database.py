@@ -15,7 +15,6 @@ IT"S ALL GOOD HERE
 
 dotenv.load_dotenv()
 DB_PATH = os.environ.get("DB_PATH")
-DB_PASSWORD = os.environ.get("DB_PASSWORD")
 
 
 def create_db(path: str, password: str, to_create=False) -> None:

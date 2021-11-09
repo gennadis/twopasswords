@@ -4,32 +4,23 @@ import dotenv
 import py_cui
 import logging
 import pyperclip
-import threading
 import webbrowser
-from datetime import date, datetime
-from facescan import FaceScan
+from datetime import datetime
 from database import Account, DatabaseEngine
 from password_generator import PasswordGenerator
 
 
 dotenv.load_dotenv()
 DB_PATH = os.environ.get("DB_PATH")
-DB_PASSWORD = os.environ.get("DB_PASSWORD")
-
-new_picture = os.environ.get("LAST_IMAGE_PATH")
-user_picture = os.environ.get("USER_FACE")
 
 
-__version__ = "0.7"
-
-
-class TwoPasswordsApp:
-    def __init__(self, root: py_cui.PyCUI):
+class TwoPasswordsTUI:
+    def __init__(self, root: py_cui.PyCUI, pragma: str):
         self.root = root
-        self.database = DatabaseEngine(DB_PATH, DB_PASSWORD)
+        self.database = DatabaseEngine(DB_PATH, pragma)
 
         # Set title
-        self.root.set_title(f"TwoPasswords v{__version__}")
+        self.root.set_title(f"TwoPasswords")
 
         # Keybindings when in overview mode, and set info bar
         self.root.add_key_command(py_cui.keys.KEY_M_LOWER, self.show_menu)
@@ -106,12 +97,6 @@ class TwoPasswordsApp:
             region=[0, 14],
             include_whitespace=True,
         )
-        # self.account_card_block.add_text_color_rule(
-        #     "created:", py_cui.CYAN_ON_BLACK, "startswith"
-        # )
-        # self.account_card_block.add_text_color_rule(
-        #     "last modified:", py_cui.CYAN_ON_BLACK, "startswith"
-        # )
 
         self.account_card_block.set_help_text(
             "|  (r)eveal password |  (c)opy password  |  (e)dit  |  (d)elete  |  Arrows - scroll, Esc - exit"
@@ -143,60 +128,7 @@ class TwoPasswordsApp:
         self.search_textbox.set_help_text("Enter your search query, Esc - exit")
 
         ################ INITIALIZE MENUS WITH DATABASE STATUS ################
-        self.show_facescan_popup()
-        # self.read_database()
-        # self.show_enter_pragma_box()
-
-    ################ INITIALIZE AUTH PROCESS ################
-
-    def show_facescan_popup(self) -> None:
-        self.root.show_loading_icon_popup("Please Wait", "Scanning your face")
-        self.operation_thread = threading.Thread(target=self.scan_face)
-        self.operation_thread.start()
-
-    def scan_face(self) -> None:
-        result_status = {
-            -1: "Stranger's face detected",
-            0: "No face detected",
-            1: "Auth OK",
-            2: "Multiple faces detected",
-        }
-        result: int = FaceScan(user_picture, new_picture).auth()
-        self.root.stop_loading_popup()
-
-        if result == 1:  # auth succeed, continue to pragma check
-            self.show_enter_pragma_box()
-
-        elif result in (0, 2):
-            self.root.show_yes_no_popup(
-                f"{result_status[result]}. Try again?", self.quit_from_facescan
-            )
-
-        elif result == -1:
-            self.root.stop()
-            # os.system("clear")
-            # print("WARNING: Facescan Auth Failed!")
-            # os._exit(1)
-            # # sys.exit()
-            # # self.operation_thread.stop()
-
-    def quit_from_facescan(self, try_again):
-        if try_again:
-            self.show_facescan_popup()
-        else:
-            self.root.stop()
-
-    def show_enter_pragma_box(self):
-        self.root.show_text_box_popup(
-            "Please enter a pragma key", self.check_pragma, password=True
-        )
-
-    def check_pragma(self, pragma):
-        if pragma == DB_PASSWORD:
-            self.read_database()
-            self.root.move_focus(self.search_textbox)
-        else:
-            self.show_enter_pragma_box()
+        self.read_database()
 
     ################ LOGO ################
     def get_logo(self) -> list:
@@ -365,7 +297,6 @@ class TwoPasswordsApp:
                 "Password: custom or (x)kcd, (r)andom, (p)in",
                 "Notes",
             ],
-            # passwd_fields=["Password"],
             required=["Username", "Password"],
             callback=self.save_add_form_results,
         )
@@ -461,7 +392,6 @@ class TwoPasswordsApp:
 
             self.read_database(preserve_selected=True)
 
-            # show logo
             self.account_card_block.clear()
             self.account_card_block.add_item_list(self.get_logo())
 
@@ -558,10 +488,6 @@ class TwoPasswordsApp:
         self.populate_account_card(account_info)
         self.root.move_focus(self.account_card_block)
 
-    # @staticmethod
-    # def normalize_url(url: str) -> str:
-    #     return url[1].split("//")[1].replace("www.", "")
-
     # ################ COPY TO CLIPBOARD ################
     def copy_password(self):
         account_title = self.account_card_block.get_title()
@@ -588,7 +514,7 @@ class TwoPasswordsApp:
         Cycles through all widgets
         Current count of widgets is *THREE*
         """
-        # pass
+
         widgets_count = len(self.root.get_widgets().keys())  # len([0, 1, 2]) == 3
         current_widget_id = self.root._selected_widget
 
@@ -620,7 +546,7 @@ class TwoPasswordsApp:
 
     ################ SAY BYE ON EXIT ################
     def say_bye(self):
-        os.system("clear")
+        # os.system("clear")
         print("HAVE A NICE DAY! 😊")
 
     ################ SHOW HELP TEXT ################
@@ -633,11 +559,11 @@ class TwoPasswordsApp:
         self.root.show_message_popup("HELP", help_text)
 
 
-def start_tui():
+def start_tui(pragma):
     root = py_cui.PyCUI(8, 8)
     root.enable_logging(logging_level=logging.DEBUG)
     root.toggle_unicode_borders()
-    frame = TwoPasswordsApp(root)
+    frame = TwoPasswordsTUI(root, pragma)
 
     root.start()
 

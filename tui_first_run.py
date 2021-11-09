@@ -1,23 +1,23 @@
-from dotenv.main import load_dotenv
+import os
 import py_cui
-import dotenv
 import logging
 
+from dotenv import load_dotenv, set_key
 from time import sleep
 
-
+from tui_main import start_tui
 from facescan import FaceScan
 from database import create_db
 
+
 load_dotenv()
-
-user_face_path = "user_face.jpg"
-database_path = "accounts.sqlite"
+DB_PATH = os.environ.get("DB_PATH")
 
 
-class NewUserRegistration:
+class RegistrationTUI:
     def __init__(self, root: py_cui.PyCUI):
         self.root = root
+        self.db_password = None
 
         ################ WELCOME TEXT BLOCK ################
         self.welcome_block = self.root.add_scroll_menu("Welcome!", 0, 0, 3)
@@ -51,10 +51,23 @@ class NewUserRegistration:
         self.create_database_button.set_color(py_cui.WHITE_ON_BLACK)
 
         ################ EXIT BUTTON ################
-        self.exit_button = self.root.add_button("EXIT", 2, 1, command=self.root.stop)
-        self.exit_button.set_color(py_cui.RED_ON_BLACK)
+        self.next_button = self.root.add_button(
+            "NEXT", 2, 1, command=self.proceed_to_app
+        )
+        self.next_button.set_color(py_cui.GREEN_ON_BLACK)
 
         self.root.set_selected_widget(1)
+
+    def proceed_to_app(self):
+        if self.db_password:
+            self.root.forget_widget(self.welcome_block)
+            self.root.forget_widget(self.take_picture_button)
+            self.root.forget_widget(self.create_database_button)
+            self.root.forget_widget(self.next_button)
+            self.root.stop()
+            start_tui(self.db_password)
+        else:
+            self.root.show_error_popup("ERROR", "Registration is not completed")
 
     def populate_welcome_text(self):
         self.welcome_block.clear()
@@ -90,17 +103,16 @@ class NewUserRegistration:
         )
 
         if entry1 == entry2:
-            dotenv.set_key(
+            set_key(
                 ".env",
                 key_to_set="DB_PASSWORD",
                 value_to_set=entry1,
                 quote_mode="never",
             )
-            self.root.show_message_popup(
-                "OK!",
-                f"{entry1}, {entry2}",
-            )
-            create_db(database_path, entry1, to_create=True)
+            self.root.show_message_popup("OK!", f"{entry1}, {entry2}")
+            create_db(DB_PATH, entry1, to_create=True)
+
+            self.db_password = entry1
 
             self.welcome_text[
                 3
@@ -119,7 +131,7 @@ def start_registration():
     root = py_cui.PyCUI(3, 2)
     root.toggle_unicode_borders()
     root.enable_logging(logging_level=logging.DEBUG)
-    frame = NewUserRegistration(root)
+    frame = RegistrationTUI(root)
     root.start()
 
 
