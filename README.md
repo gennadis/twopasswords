@@ -1,3 +1,9 @@
+#TODO:
+1. dotenv -> config.py
+2. sqlite3 -> sqlalchemy ???
+
+
+
 # Installation notes:
 
 ### ffmpeg for a latest OpenCV version
