@@ -5,9 +5,9 @@ import logging
 from dotenv import load_dotenv, set_key
 from time import sleep
 
-from tui_main import start_tui
-from facescan import FaceScan
-from database import create_db
+from views.tui_main import start_tui
+from utils.facescan import FaceScan
+from utils.database import create_db
 
 
 load_dotenv()

@@ -1,13 +1,15 @@
 import os
 import json
-import dotenv
-import py_cui
 import logging
-import pyperclip
+import datetime
 import webbrowser
-from datetime import datetime
-from database import Account, DatabaseEngine
-from password_generator import PasswordGenerator
+
+import py_cui
+import dotenv
+import pyperclip
+
+from utils.database import Account, DatabaseEngine
+from utils.password_generator import PasswordGenerator
 
 
 dotenv.load_dotenv()
@@ -321,8 +323,8 @@ class TwoPasswordsTUI:
             form_output["Username"],
             new_password,
             form_output["Notes"],
-            datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         )
 
         self.database.add_account(new_account)
@@ -437,8 +439,12 @@ class TwoPasswordsTUI:
 
     @staticmethod
     def format_date(datetime_string: str):
-        datetime_object = datetime.strptime(datetime_string, "%Y-%m-%d %H:%M:%S")
-        new_datetime_object = datetime.strftime(datetime_object, "%d %b %Y at %H:%M")
+        datetime_object = datetime.datetime.strptime(
+            datetime_string, "%Y-%m-%d %H:%M:%S"
+        )
+        new_datetime_object = datetime.datetime.strftime(
+            datetime_object, "%d %b %Y at %H:%M"
+        )
 
         return new_datetime_object
 

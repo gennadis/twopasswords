@@ -3,10 +3,10 @@ import threading
 import dotenv
 import py_cui
 import logging
-from facescan import FaceScan
-from emailer import EmailSender
-from database import DatabaseEngine
-from tui_main import start_tui
+from utils.facescan import FaceScan
+from utils.emailer import EmailSender
+from utils.database import DatabaseEngine
+from views.tui_main import start_tui
 
 dotenv.load_dotenv()
 DB_PATH = os.environ.get("DB_PATH")

@@ -1,9 +1,8 @@
 venv/
 .DS_Store
-*.key
-*.jpg
+__pycache__
+backup.json
 *.sqlite
+*.jpg
 .env
 .log
-
-__pycache__

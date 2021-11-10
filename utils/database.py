@@ -2,9 +2,13 @@ from __future__ import annotations
 import os
 import dotenv
 from datetime import datetime
-from sqlcipher3 import dbapi2 as sqlite3
+
+
 from faker import Faker
-from password_generator import PasswordGenerator
+from sqlcipher3 import dbapi2 as sqlite3
+
+from utils.password_generator import PasswordGenerator
+
 
 """
 ------------------

@@ -3,7 +3,7 @@ import cv2
 import face_recognition
 from time import sleep
 from dotenv import load_dotenv
-from emailer import EmailSender
+from utils.emailer import EmailSender
 
 
 """

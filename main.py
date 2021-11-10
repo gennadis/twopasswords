@@ -1,17 +1,23 @@
-from os import path
-from tui_auth import start_auth
-from tui_first_run import start_registration
+from os import environ, path
+from dotenv import load_dotenv
+
+from views.tui_auth import start_auth
+from views.tui_first_run import start_registration
 
 
-face_is_registered = path.exists("user_face.jpg")
-database_is_created = path.exists("accounts.sqlite")
+load_dotenv()
+DB_PATH = environ.get("DB_PATH")
+USER_PICTURE = environ.get("USER_FACE")
+
+face_is_registered: bool = path.exists(USER_PICTURE)
+database_is_created: bool = path.exists(DB_PATH)
 
 
 def check_if_new_user():
-    if not face_is_registered and not database_is_created:
-        start_registration()
-    else:
+    if face_is_registered and database_is_created:
         start_auth()
+    else:
+        start_registration()
 
 
 if __name__ == "__main__":
