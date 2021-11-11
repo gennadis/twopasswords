@@ -14,6 +14,7 @@ from utils.password_generator import PasswordGenerator
 
 dotenv.load_dotenv()
 DB_PATH = os.environ.get("DB_PATH")
+USER_PICTURE = os.environ.get("USER_FACE")
 
 
 class TwoPasswordsTUI:
@@ -163,6 +164,7 @@ class TwoPasswordsTUI:
             "CLEAR DATABASE",
             "Import JSON",
             "Export JSON",
+            "--Remove database and user picture files--",
         ]
         self.root.show_menu_popup(
             "Main menu",
@@ -184,6 +186,8 @@ class TwoPasswordsTUI:
             self.show_import_popup()
         elif option == "Export JSON":
             self.show_export_popup()
+        elif option == "--Remove database and user picture files--":
+            self.show_remove_database_popup()
 
     ################ IMPORT JSON ################
     def show_import_popup(self):
@@ -256,7 +260,7 @@ class TwoPasswordsTUI:
         current_account = self.database.get_exact_account(item)
         self.populate_account_card(current_account)
 
-    ################ Fill database with Fakes! ################
+    ################ Clear database ################
     def show_clear_database_popup(self):
         self.root.show_yes_no_popup("ARE YOU SURE ?!", self.clear_database)
 
@@ -269,7 +273,20 @@ class TwoPasswordsTUI:
             self.account_card_block.add_item_list(self.get_logo())
 
         else:
-            self.root.show_message_popup("Database clear was cancelled")
+            self.root.show_message_popup("Operation was cancelled")
+
+    ################ Clear database ################
+    def show_remove_database_popup(self):
+        self.root.show_yes_no_popup("ARE YOU SURE ?!", self.remove_database)
+
+    def remove_database(self, to_remove):
+        if to_remove:
+            os.remove(DB_PATH)
+            os.remove(USER_PICTURE)
+            self.root.stop()
+
+        else:
+            self.root.show_message_popup("Operation was cancelled")
 
     ################ Fill database with Fakes! ################
     def show_fill_fakes_popup(self):

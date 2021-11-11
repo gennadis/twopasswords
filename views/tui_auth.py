@@ -1,11 +1,13 @@
 import os
+import logging
 import threading
+
 import dotenv
 import py_cui
-import logging
-from utils.facescan import FaceScan
-from utils.emailer import EmailSender
+
 from utils.database import DatabaseEngine
+from utils.emailer import EmailSender
+from utils.facescan import FaceScan
 from views.tui_main import start_tui
 
 dotenv.load_dotenv()
@@ -29,15 +31,22 @@ class AuthTUI:
         )
         self.auth_menu.set_selectable(False)
 
-        self.attempts = 3
-        self.show_attempts_left()
+        self.attempts = 4
+        self.check_attempts()
 
         self.show_facescan_popup()
 
-    def show_attempts_left(self):
-        self.auth_menu.clear()
-        list_of_text = [""] * 25 + [f"Attempts left: {self.attempts}"]
-        self.auth_menu.add_item_list(list_of_text)
+    def check_attempts(self):
+        self.attempts -= 1
+
+        if self.attempts < 1:
+            self.root.stop()
+            self.rage_quit()
+
+        else:
+            self.auth_menu.clear()
+            list_of_text = [""] * 27 + [f"Attempts left: {self.attempts}"]
+            self.auth_menu.add_item_list(list_of_text)
 
     def show_facescan_popup(self) -> None:
         self.root.show_loading_icon_popup("Please Wait", "Scanning your face")
@@ -58,12 +67,8 @@ class AuthTUI:
             self.show_enter_pragma_box()
 
         elif result in (0, 2):
-            self.attempts -= 1
+            self.check_attempts()
 
-            if self.attempts < 1:
-                self.rage_quit()
-
-            self.show_attempts_left()
             self.root.show_yes_no_popup(
                 f"{result_status[result]}. Try again?", self.quit_from_facescan
             )
@@ -84,7 +89,7 @@ class AuthTUI:
 
     def show_enter_pragma_box(self):
         self.root.show_text_box_popup(
-            "Please enter a pragma key", self.check_pragma, password=True
+            "Please enter your master password", self.check_pragma, password=True
         )
 
     def check_pragma(self, pragma):
@@ -97,18 +102,14 @@ class AuthTUI:
             start_tui(pragma)
 
         except:
-            self.attempts -= 1
+            self.check_attempts()
 
-            if self.attempts < 1:
-                self.rage_quit()
-
-            self.show_attempts_left()
             self.show_enter_pragma_box()
 
     def rage_quit(self):
         EmailSender(
-            "Face auth report",
-            "Warning! Last auth was failed! Check the image in attachments!!!",
+            "TwoPasswords Auth Report",
+            "Warning! Last auth failed: THREE ATTEMPTS WAS NOT SUCCESSFULL! Check the image in attachments.",
             EMAIL_ADDRESS,
             EMAIL_PASSWORD,
             LAST_PICTURE,

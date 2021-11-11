@@ -1,33 +1,41 @@
 import os
-import py_cui
 import logging
-
-from dotenv import load_dotenv, set_key
 from time import sleep
 
-from views.tui_main import start_tui
-from utils.facescan import FaceScan
+import py_cui
+from dotenv import load_dotenv, set_key
+
 from utils.database import create_db
+from utils.facescan import FaceScan
+from views.tui_main import start_tui
 
 
 load_dotenv()
 DB_PATH = os.environ.get("DB_PATH")
+USER_PICTURE = os.environ.get("USER_FACE")
 
 
 class RegistrationTUI:
     def __init__(self, root: py_cui.PyCUI):
         self.root = root
         self.db_password = None
+        self.root.set_title(f"TwoPasswords")
 
         ################ WELCOME TEXT BLOCK ################
+        """
+        To start using GitLab with Git, 
+        complete the following tasks: 
+        Create and sign in to a GitLab account. Open a terminal. Install Git on your computer. Configure ..
+        """
         self.welcome_block = self.root.add_scroll_menu("Welcome!", 0, 0, 3)
         self.welcome_text = [
-            "To start using TwoPasswords App you need to:",
             "",
-            "1. Register your face for FaceAuth",
-            "2. Create new Database with secure master password",
+            "To start using TwoPasswords,",
+            "complete the following tasks:",
             "",
-            "3. Restart App by hitting the Exit button",
+            "1. Scan and register your face",
+            "2. Create a database and your master password",
+            "3. Proceed by hitting the Next button",
         ]
         self.welcome_block.add_text_color_rule(
             "DONE", py_cui.CYAN_ON_BLACK, "startswith"
@@ -37,13 +45,13 @@ class RegistrationTUI:
 
         ################ TAKE PICTURE BUTTON ################
         self.take_picture_button = self.root.add_button(
-            "STEP 1 -- Register your face", 0, 1, command=self.take_new_user_picture
+            "Step 1: Register your face", 0, 1, command=self.take_new_user_picture
         )
         self.take_picture_button.set_color(py_cui.WHITE_ON_BLACK)
 
         ################ CREATE DATABASE BUTTON ################
         self.create_database_button = self.root.add_button(
-            "STEP 2 -- Create new Database",
+            "Step 2: Create a database",
             1,
             1,
             command=self.show_create_database_popup,
@@ -52,7 +60,7 @@ class RegistrationTUI:
 
         ################ EXIT BUTTON ################
         self.next_button = self.root.add_button(
-            "NEXT", 2, 1, command=self.proceed_to_app
+            "Next", 2, 1, command=self.proceed_to_app
         )
         self.next_button.set_color(py_cui.GREEN_ON_BLACK)
 
@@ -67,25 +75,25 @@ class RegistrationTUI:
             self.root.stop()
             start_tui(self.db_password)
         else:
-            self.root.show_error_popup("ERROR", "Registration is not completed")
+            self.root.show_error_popup("Error", "Registration was not completed")
 
     def populate_welcome_text(self):
         self.welcome_block.clear()
         self.welcome_block.add_item_list(self.welcome_text)
 
     def take_new_user_picture(self):
-        FaceScan("", "user_face.jpg").take_picture()
+        FaceScan("", USER_PICTURE).take_picture()
         sleep(1)
         self.root.show_message_popup("Done!", "Face registered successfully")
 
-        self.welcome_text[2] = "DONE --> 1. Register your face for FaceAuth"
+        self.welcome_text[4] = "DONE --> " + self.welcome_text[4]
         self.populate_welcome_text()
         self.root.set_selected_widget(2)
 
     def show_create_database_popup(self):
-        entry_fields = ["New Password", "Confirm new password"]
+        entry_fields = ["Master password", "Confirm master password"]
         self.root.show_form_popup(
-            "Enter your Master password",
+            "Create your master password",
             entry_fields,
             entry_fields,
             required=entry_fields,
@@ -98,8 +106,8 @@ class RegistrationTUI:
         hence the ugly implementation with different keys
         """
         entry1, entry2 = (
-            form_output["New Password"],
-            form_output["Confirm new password"],
+            form_output["Master password"],
+            form_output["Confirm master password"],
         )
 
         if entry1 == entry2:
@@ -109,21 +117,19 @@ class RegistrationTUI:
                 value_to_set=entry1,
                 quote_mode="never",
             )
-            self.root.show_message_popup("OK!", f"{entry1}, {entry2}")
+            self.root.show_message_popup("Done!", f"Your master password is: {entry1}")
             create_db(DB_PATH, entry1, to_create=True)
 
             self.db_password = entry1
 
-            self.welcome_text[
-                3
-            ] = "DONE --> 2. Create new Database with secure master password"
+            self.welcome_text[5] = "DONE --> " + self.welcome_text[5]
             self.populate_welcome_text()
             self.root.set_selected_widget(3)
 
         else:
-            self.root.show_message_popup(
-                "Warning!",
-                "The confirm password does not match! Try again!",
+            self.root.show_error_popup(
+                "Error",
+                "Password and confirm password does not match",
             )
 
 

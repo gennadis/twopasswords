@@ -1,8 +1,10 @@
 import os
 import cv2
-import face_recognition
 from time import sleep
+
+import face_recognition
 from dotenv import load_dotenv
+
 from utils.emailer import EmailSender
 
 
@@ -114,8 +116,8 @@ class FaceScan:
         if self.compare_faces() != [True]:  # some strange comparison here...
             self.draw_rectangle()
             EmailSender(
-                "Face auth report",
-                "Warning! Last face auth was failed! Check the image in attachments!!!",
+                "TwoPasswords Auth Report",
+                "Warning! Last auth failed. Check the image in attachments.",
                 EMAIL_ADDRESS,
                 EMAIL_PASSWORD,
                 self.try_face,

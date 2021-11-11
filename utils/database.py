@@ -1,9 +1,9 @@
 from __future__ import annotations
+
 import os
-import dotenv
 from datetime import datetime
 
-
+import dotenv
 from faker import Faker
 from sqlcipher3 import dbapi2 as sqlite3
 
@@ -68,6 +68,7 @@ class DatabaseEngine:
         self.connection.commit()
         # self.connection.close()
 
+    # good
     def add_account(self, account: Account) -> None:
         self.cursor.execute(
             "INSERT INTO accounts (item, url, username, password, notes, date_created, date_modified) VALUES (:item, :url, :username, :password, :notes, :date_created, :date_modified)",
@@ -82,26 +83,33 @@ class DatabaseEngine:
             },
         )
 
-    def get_account(self, _item: str) -> Account:
-        # self.cursor.execute("SELECT * FROM accounts WHERE url=:url;", {"url": _url})
-        # self.cursor.execute("SELECT * FROM accounts WHERE item LIKE ?", _item)
+    # good
+    def get_account(self, item: str) -> Account:
+
         self.cursor.execute(
-            "SELECT * FROM accounts WHERE item like '%{0}%'".format(_item)
+            "SELECT * FROM accounts WHERE item like '%{0}%'".format(item)
         )
 
+        # self.cursor.execute(
+        #     "SELECT * FROM accounts WHERE item like item", {"item": item}
+        # )
+
         return Account(*self.cursor.fetchone()[1:])  # [1:] -> without ID
 
-    def get_exact_account(self, _item: str) -> Account:
+    # good
+    def get_exact_account(self, item: str) -> Account:
         # self.cursor.execute("SELECT * FROM accounts WHERE url=:url;", {"url": _url})
         # self.cursor.execute("SELECT * FROM accounts WHERE item LIKE ?", _item)
-        self.cursor.execute("SELECT * FROM accounts WHERE item=:item;", {"item": _item})
+        self.cursor.execute("SELECT * FROM accounts WHERE item=:item;", {"item": item})
 
         return Account(*self.cursor.fetchone()[1:])  # [1:] -> without ID
 
+    # good
     def get_all_accounts(self) -> list:
         self.cursor.execute("SELECT * FROM accounts")
         return [Account(*account[1:]) for account in self.cursor.fetchall()]
 
+    # good
     def update_account(self, account: Account, password: str) -> None:
         self.cursor.execute(
             "UPDATE accounts SET password=:password, date_modified=:date_modified WHERE url=:url AND username=:username",
@@ -116,6 +124,7 @@ class DatabaseEngine:
             },
         )
 
+    # good
     def delete_account(self, account: Account) -> None:
         self.cursor.execute(
             "DELETE FROM accounts WHERE url=:url AND username=:username",

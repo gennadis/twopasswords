@@ -2,8 +2,8 @@ import os
 import string
 from random import SystemRandom
 from random import choice
-import dotenv
 
+from dotenv import load_dotenv
 
 """
 ------------------
@@ -12,7 +12,7 @@ IT"S ALL GOOD HERE
 """
 
 
-dotenv.load_dotenv()
+load_dotenv()
 WORDS: str = os.environ.get("WORDS")
 
 
