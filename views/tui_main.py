@@ -4,28 +4,27 @@ import logging
 import datetime
 import webbrowser
 
+
 import py_cui
-import dotenv
 import pyperclip
 
+
+from config import config_loader
 from utils.database import Account, DatabaseEngine
 from utils.password_generator import PasswordGenerator
 
 
-dotenv.load_dotenv()
-DB_PATH = os.environ.get("DB_PATH")
-USER_PICTURE = os.environ.get("USER_FACE")
+file_paths, email_settings = config_loader.load()
 
 
 class TwoPasswordsTUI:
     def __init__(self, root: py_cui.PyCUI, pragma: str):
         self.root = root
-        self.database = DatabaseEngine(DB_PATH, pragma)
+        self.database = DatabaseEngine(file_paths["db_path"], pragma)
 
-        # Set title
         self.root.set_title(f"TwoPasswords")
 
-        # Keybindings when in overview mode, and set info bar
+        # Keybindings when in overview mode
         self.root.add_key_command(py_cui.keys.KEY_M_LOWER, self.show_menu)
         self.root.add_key_command(py_cui.keys.KEY_TAB, self.switch_widget)
         self.root.set_status_bar_text("Quit - q | Menu - m ")
@@ -272,21 +271,15 @@ class TwoPasswordsTUI:
             self.account_card_block.clear()
             self.account_card_block.add_item_list(self.get_logo())
 
-        else:
-            self.root.show_message_popup("Operation was cancelled")
-
     ################ Clear database ################
     def show_remove_database_popup(self):
         self.root.show_yes_no_popup("ARE YOU SURE ?!", self.remove_database)
 
     def remove_database(self, to_remove):
         if to_remove:
-            os.remove(DB_PATH)
-            os.remove(USER_PICTURE)
+            os.remove(file_paths["db_path"])
+            os.remove(file_paths["user_image"])
             self.root.stop()
-
-        else:
-            self.root.show_message_popup("Operation was cancelled")
 
     ################ Fill database with Fakes! ################
     def show_fill_fakes_popup(self):
@@ -584,7 +577,7 @@ class TwoPasswordsTUI:
 
 def start_tui(pragma):
     root = py_cui.PyCUI(8, 8)
-    root.enable_logging(logging_level=logging.DEBUG)
+    # root.enable_logging(logging_level=logging.DEBUG)
     root.toggle_unicode_borders()
     frame = TwoPasswordsTUI(root, pragma)
 

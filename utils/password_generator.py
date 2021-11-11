@@ -1,9 +1,8 @@
-import os
 import string
-from random import SystemRandom
-from random import choice
+from random import SystemRandom, choice
 
-from dotenv import load_dotenv
+from config import config_loader
+
 
 """
 ------------------
@@ -11,9 +10,7 @@ IT"S ALL GOOD HERE
 ------------------
 """
 
-
-load_dotenv()
-WORDS: str = os.environ.get("WORDS")
+file_paths, email_settings = config_loader.load()
 
 
 class PasswordGenerator:
@@ -28,7 +25,7 @@ class PasswordGenerator:
         self.style = style
         self.length = length
         self.alphabet = string.ascii_letters + string.digits + string.punctuation
-        self.words_list = WORDS
+        self.words_list = file_paths["words"]
         self.styles = ("random", "xkcd", "pin")
 
     def random_style(self) -> str:

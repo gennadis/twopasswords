@@ -1,0 +1,14 @@
+# EDIT EMAIL SETTINGS AND
+# RENAME THIS FILE TO config.yaml
+---
+- files: # Local file paths
+    db_path:    "config/accounts.sqlite"
+    user_image: "config/user_face.jpg"
+    last_image: "config/last_face.jpg"
+    words:      "config/words.txt"
+
+- email: # Email settings
+    address:    "name.surname@gmail.com"
+    password:   "p@ssw0rd"
+    server:     "smtp.gmail.com"
+    port:       "465"

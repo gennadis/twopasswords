@@ -1,9 +1,6 @@
 from __future__ import annotations
-
-import os
 from datetime import datetime
 
-import dotenv
 from faker import Faker
 from sqlcipher3 import dbapi2 as sqlite3
 
@@ -15,10 +12,6 @@ from utils.password_generator import PasswordGenerator
 IT"S ALL GOOD HERE
 ------------------
 """
-
-
-dotenv.load_dotenv()
-DB_PATH = os.environ.get("DB_PATH")
 
 
 def create_db(path: str, password: str, to_create=False) -> None:
@@ -68,7 +61,6 @@ class DatabaseEngine:
         self.connection.commit()
         # self.connection.close()
 
-    # good
     def add_account(self, account: Account) -> None:
         self.cursor.execute(
             "INSERT INTO accounts (item, url, username, password, notes, date_created, date_modified) VALUES (:item, :url, :username, :password, :notes, :date_created, :date_modified)",
@@ -83,20 +75,14 @@ class DatabaseEngine:
             },
         )
 
-    # good
     def get_account(self, item: str) -> Account:
 
         self.cursor.execute(
             "SELECT * FROM accounts WHERE item like '%{0}%'".format(item)
         )
 
-        # self.cursor.execute(
-        #     "SELECT * FROM accounts WHERE item like item", {"item": item}
-        # )
-
         return Account(*self.cursor.fetchone()[1:])  # [1:] -> without ID
 
-    # good
     def get_exact_account(self, item: str) -> Account:
         # self.cursor.execute("SELECT * FROM accounts WHERE url=:url;", {"url": _url})
         # self.cursor.execute("SELECT * FROM accounts WHERE item LIKE ?", _item)
@@ -104,12 +90,10 @@ class DatabaseEngine:
 
         return Account(*self.cursor.fetchone()[1:])  # [1:] -> without ID
 
-    # good
     def get_all_accounts(self) -> list:
         self.cursor.execute("SELECT * FROM accounts")
         return [Account(*account[1:]) for account in self.cursor.fetchall()]
 
-    # good
     def update_account(self, account: Account, password: str) -> None:
         self.cursor.execute(
             "UPDATE accounts SET password=:password, date_modified=:date_modified WHERE url=:url AND username=:username",
@@ -124,7 +108,6 @@ class DatabaseEngine:
             },
         )
 
-    # good
     def delete_account(self, account: Account) -> None:
         self.cursor.execute(
             "DELETE FROM accounts WHERE url=:url AND username=:username",
@@ -168,37 +151,3 @@ class Account:
 
     def __repr__(self) -> str:
         return f"Account(item={self.item}, url={self.url}, username={self.username}, password={self.password}, notes={self.notes}, date_created={self.date_created}, date_modified={self.date_modified})"
-
-
-if __name__ == "__main__":
-    pass
-
-    # create_db(DB_PATH, DB_PASSWORD, to_create=True)
-
-    # db_session = DatabaseEngine(DB_PATH, DB_PASSWORD)
-    # # print(db_session.get_all_accounts())
-    # # print(db_session.get_account("http://www.wells.org/"))
-
-    # for i in range(35):
-    #     new_account = Account.from_faker()
-    #     db_session.add_account(new_account)
-    #     print(f"{new_account} added to database")
-
-    # # for el in db_session.get_all_accounts():
-    # #     print(*el, sep="  --  ")
-
-    # # print(db_session.get_account("and"))
-
-    # db_session.safe_push()
-
-    # # new_account = Account("ping.com", "username11", "password111")
-    # # new_account_2 = Account("sing.com", "username22", "password222")
-
-    # # session.add_account(new_account)
-    # # session.add_account(new_account_2)
-
-    # # res = session.get_all_accounts()
-    # # for el in res:
-    # #     print(Account(*el[1:]))
-
-    # # session.safe_push()

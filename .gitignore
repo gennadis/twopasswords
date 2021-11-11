@@ -1,8 +1,11 @@
 venv/
 .DS_Store
 __pycache__
+
+.env
+config.yaml
+
 *.sqlite
 *.json
 *.jpg
-.env
 *.log

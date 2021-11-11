@@ -1,25 +1,16 @@
-import os
 import logging
 import threading
 
-import dotenv
 import py_cui
 
+from config import config_loader
+from utils import emailer
+from views import tui_main
 from utils.database import DatabaseEngine
-from utils.emailer import EmailSender
 from utils.facescan import FaceScan
-from views.tui_main import start_tui
 
-dotenv.load_dotenv()
-DB_PATH = os.environ.get("DB_PATH")
 
-LAST_PICTURE = os.environ.get("LAST_IMAGE_PATH")
-USER_PICTURE = os.environ.get("USER_FACE")
-
-EMAIL_ADDRESS = os.environ.get("EMAIL_ADDRESS")
-EMAIL_PASSWORD = os.environ.get("EMAIL_PASSWORD")
-EMAIL_SERVER = os.environ.get("EMAIL_SERVER")
-EMAIL_PORT = os.environ.get("EMAIL_PORT")
+file_paths, email_settings = config_loader.load()
 
 
 class AuthTUI:
@@ -60,7 +51,9 @@ class AuthTUI:
             1: "Auth OK",
             2: "Multiple faces detected",
         }
-        result: int = FaceScan(USER_PICTURE, LAST_PICTURE).auth()
+        result: int = FaceScan(
+            file_paths["user_image"], file_paths["last_image"]
+        ).auth()
         self.root.stop_loading_popup()
 
         if result == 1:  # auth succeed, continue to pragma check
@@ -75,11 +68,6 @@ class AuthTUI:
 
         elif result == -1:
             self.root.stop()
-            # os.system("clear")
-            # print("WARNING: Facescan Auth Failed!")
-            # os._exit(1)
-            # # sys.exit()
-            # # self.operation_thread.stop()
 
     def quit_from_facescan(self, try_again):
         if try_again:
@@ -93,13 +81,12 @@ class AuthTUI:
         )
 
     def check_pragma(self, pragma):
-        self.database = DatabaseEngine(DB_PATH, pragma)
+        self.database = DatabaseEngine(file_paths["db_path"], pragma)
         try:
-            # self.database.safe_push()
             self.database.get_all_accounts()
             self.root.forget_widget(self.auth_menu)
             self.root.stop()
-            start_tui(pragma)
+            tui_main.start_tui(pragma)
 
         except:
             self.check_attempts()
@@ -107,22 +94,15 @@ class AuthTUI:
             self.show_enter_pragma_box()
 
     def rage_quit(self):
-        EmailSender(
-            "TwoPasswords Auth Report",
-            "Warning! Last auth failed: THREE ATTEMPTS WAS NOT SUCCESSFULL! Check the image in attachments.",
-            EMAIL_ADDRESS,
-            EMAIL_PASSWORD,
-            LAST_PICTURE,
-            EMAIL_SERVER,
-            EMAIL_PORT,
-        ).send_email()
-
+        emailer.send_auth_report(
+            "Warning! Three attempts of Auth failed. Check the image in attachments."
+        )
         self.root.stop()
 
 
 def start_auth():
     root = py_cui.PyCUI(3, 3)
-    root.enable_logging(logging_level=logging.DEBUG)
+    # root.enable_logging(logging_level=logging.DEBUG)
     root.toggle_unicode_borders()
     frame = AuthTUI(root)
 

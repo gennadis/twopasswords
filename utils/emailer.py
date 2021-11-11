@@ -1,4 +1,6 @@
-import smtplib
+from smtplib import SMTP_SSL
+
+from config import config_loader
 from email.message import EmailMessage
 
 
@@ -7,6 +9,8 @@ from email.message import EmailMessage
 IT"S ALL GOOD HERE
 ------------------
 """
+
+file_paths, email_settings = config_loader.load()
 
 
 class EmailSender:
@@ -51,6 +55,18 @@ class EmailSender:
                 filename=attach.name,
             )
 
-        with smtplib.SMTP_SSL(self.server, self.port) as smtp:
+        with SMTP_SSL(self.server, self.port) as smtp:
             smtp.login(self.email_address, self.email_password)
             smtp.send_message(message)
+
+
+def send_auth_report(content: str):
+    EmailSender(
+        "TwoPasswords Auth Report",
+        content,
+        email_settings["address"],
+        email_settings["password"],
+        file_paths["last_image"],
+        email_settings["server"],
+        email_settings["port"],
+    ).send_email()

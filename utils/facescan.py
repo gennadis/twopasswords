@@ -1,11 +1,15 @@
-import os
-import cv2
 from time import sleep
+from cv2 import VideoCapture, imwrite, imread, rectangle
 
-import face_recognition
-from dotenv import load_dotenv
+from face_recognition import (
+    load_image_file,
+    face_landmarks,
+    compare_faces,
+    face_encodings,
+    face_locations,
+)
 
-from utils.emailer import EmailSender
+from utils import emailer
 
 
 """
@@ -13,13 +17,6 @@ from utils.emailer import EmailSender
 IT"S ALL GOOD HERE
 ------------------
 """
-
-
-load_dotenv()
-EMAIL_ADDRESS = os.environ.get("EMAIL_ADDRESS")
-EMAIL_PASSWORD = os.environ.get("EMAIL_PASSWORD")
-EMAIL_SERVER = os.environ.get("EMAIL_SERVER")
-EMAIL_PORT = os.environ.get("EMAIL_PORT")
 
 
 class FaceScan:
@@ -39,10 +36,10 @@ class FaceScan:
         1. Take a picture with a builtin webcam.
         2. Write to a file.
         """
-        cap = cv2.VideoCapture(0)
+        cap = VideoCapture(0)
         sleep(1)
         ret, frame = cap.read()
-        cv2.imwrite(self.try_face, frame)
+        imwrite(self.try_face, frame)
         cap.release()
 
     def count_faces(self) -> int:
@@ -54,8 +51,8 @@ class FaceScan:
                >1 if multiple faces detected
         """
 
-        load_image = face_recognition.load_image_file(self.try_face)
-        face_landmarks_list = face_recognition.face_landmarks(load_image)
+        load_image = load_image_file(self.try_face)
+        face_landmarks_list = face_landmarks(load_image)
         return len(face_landmarks_list)
 
     def draw_rectangle(self) -> None:
@@ -63,15 +60,15 @@ class FaceScan:
         Draw a nice red rectangle around the face
         """
 
-        img = cv2.imread(self.try_face)
-        taken_img = face_recognition.load_image_file(self.try_face)
-        taken_img_faces = face_recognition.face_locations(taken_img)
+        img = imread(self.try_face)
+        taken_img = load_image_file(self.try_face)
+        taken_img_faces = face_locations(taken_img)
 
         for face in taken_img_faces:
             top_left = face[3], face[0]
             bottom_right = face[1], face[2]
-            cv2.rectangle(img, top_left, bottom_right, (255, 0, 255), 2)
-        cv2.imwrite(self.try_face, img)
+            rectangle(img, top_left, bottom_right, (255, 0, 255), 2)
+        imwrite(self.try_face, img)
 
     def compare_faces(self, tolerance: float = 0.6) -> bool:
         """
@@ -81,13 +78,13 @@ class FaceScan:
         return numpy.bool_ - type object
         """
 
-        reference_img = face_recognition.load_image_file(self.user_face)
-        reference_encoding = face_recognition.face_encodings(reference_img)[0]
+        reference_img = load_image_file(self.user_face)
+        reference_encoding = face_encodings(reference_img)[0]
 
-        try_img = face_recognition.load_image_file(self.try_face)
-        try_encoding = face_recognition.face_encodings(try_img)
+        try_img = load_image_file(self.try_face)
+        try_encoding = face_encodings(try_img)
 
-        results = face_recognition.compare_faces(
+        results = compare_faces(
             [reference_encoding], try_encoding[0], tolerance=tolerance
         )
         return results[0]  # <class 'numpy.bool_'>
@@ -115,15 +112,9 @@ class FaceScan:
 
         if self.compare_faces() != [True]:  # some strange comparison here...
             self.draw_rectangle()
-            EmailSender(
-                "TwoPasswords Auth Report",
-                "Warning! Last auth failed. Check the image in attachments.",
-                EMAIL_ADDRESS,
-                EMAIL_PASSWORD,
-                self.try_face,
-                EMAIL_SERVER,
-                EMAIL_PORT,
-            ).send_email()
+            emailer.send_auth_report(
+                "Warning! Stranger's face detected. Check the image in attachments."
+            )
             return -1
 
         return 1

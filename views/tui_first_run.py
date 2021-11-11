@@ -1,18 +1,15 @@
-import os
 import logging
 from time import sleep
 
 import py_cui
-from dotenv import load_dotenv, set_key
 
-from utils.database import create_db
+from utils import database
+from views import tui_main
+from config import config_loader
 from utils.facescan import FaceScan
-from views.tui_main import start_tui
 
 
-load_dotenv()
-DB_PATH = os.environ.get("DB_PATH")
-USER_PICTURE = os.environ.get("USER_FACE")
+file_paths, email_settings = config_loader.load()
 
 
 class RegistrationTUI:
@@ -45,7 +42,7 @@ class RegistrationTUI:
 
         ################ TAKE PICTURE BUTTON ################
         self.take_picture_button = self.root.add_button(
-            "Step 1: Register your face", 0, 1, command=self.take_new_user_picture
+            "Step 1: Register your face", 0, 1, command=self.take_new_user_image
         )
         self.take_picture_button.set_color(py_cui.WHITE_ON_BLACK)
 
@@ -73,7 +70,7 @@ class RegistrationTUI:
             self.root.forget_widget(self.create_database_button)
             self.root.forget_widget(self.next_button)
             self.root.stop()
-            start_tui(self.db_password)
+            tui_main.start_tui(self.db_password)
         else:
             self.root.show_error_popup("Error", "Registration was not completed")
 
@@ -81,8 +78,8 @@ class RegistrationTUI:
         self.welcome_block.clear()
         self.welcome_block.add_item_list(self.welcome_text)
 
-    def take_new_user_picture(self):
-        FaceScan("", USER_PICTURE).take_picture()
+    def take_new_user_image(self):
+        FaceScan("", file_paths["user_image"]).take_picture()
         sleep(1)
         self.root.show_message_popup("Done!", "Face registered successfully")
 
@@ -111,14 +108,14 @@ class RegistrationTUI:
         )
 
         if entry1 == entry2:
-            set_key(
-                ".env",
-                key_to_set="DB_PASSWORD",
-                value_to_set=entry1,
-                quote_mode="never",
-            )
+            # set_key(
+            #     ".env",
+            #     key_to_set="DB_PASSWORD",
+            #     value_to_set=entry1,
+            #     quote_mode="never",
+            # )
             self.root.show_message_popup("Done!", f"Your master password is: {entry1}")
-            create_db(DB_PATH, entry1, to_create=True)
+            database.create_db(file_paths["db_path"], entry1, to_create=True)
 
             self.db_password = entry1
 
@@ -136,7 +133,7 @@ class RegistrationTUI:
 def start_registration():
     root = py_cui.PyCUI(3, 2)
     root.toggle_unicode_borders()
-    root.enable_logging(logging_level=logging.DEBUG)
+    # root.enable_logging(logging_level=logging.DEBUG)
     frame = RegistrationTUI(root)
     root.start()
 
