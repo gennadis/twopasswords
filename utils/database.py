@@ -84,8 +84,6 @@ class DatabaseEngine:
         return Account(*self.cursor.fetchone()[1:])  # [1:] -> without ID
 
     def get_exact_account(self, item: str) -> Account:
-        # self.cursor.execute("SELECT * FROM accounts WHERE url=:url;", {"url": _url})
-        # self.cursor.execute("SELECT * FROM accounts WHERE item LIKE ?", _item)
         self.cursor.execute("SELECT * FROM accounts WHERE item=:item;", {"item": item})
 
         return Account(*self.cursor.fetchone()[1:])  # [1:] -> without ID

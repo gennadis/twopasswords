@@ -1,13 +1,13 @@
-# EDIT EMAIL SETTINGS AND
-# RENAME THIS FILE TO config.yaml
+# 1. Enter your email credentials
+# 2. Rename this file to 'config.yaml'
 ---
-- files: # Local file paths
+- files:        # Local file paths
     db_path:    "config/accounts.sqlite"
     user_image: "config/user_face.jpg"
     last_image: "config/last_face.jpg"
     words:      "config/words.txt"
 
-- email: # Email settings
+- email:        # Email settings
     address:    ""
     password:   ""
     server:     "smtp.gmail.com"

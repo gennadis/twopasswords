@@ -1,4 +1,4 @@
-from views.tui_selector import select_tui
+from views import tui_selector
 
 if __name__ == "__main__":
-    select_tui()
+    tui_selector.select_tui()

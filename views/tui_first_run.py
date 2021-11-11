@@ -108,12 +108,6 @@ class RegistrationTUI:
         )
 
         if entry1 == entry2:
-            # set_key(
-            #     ".env",
-            #     key_to_set="DB_PASSWORD",
-            #     value_to_set=entry1,
-            #     quote_mode="never",
-            # )
             self.root.show_message_popup("Done!", f"Your master password is: {entry1}")
             database.create_db(file_paths["db_path"], entry1, to_create=True)
 
