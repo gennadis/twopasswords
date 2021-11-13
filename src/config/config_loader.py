@@ -24,7 +24,7 @@ def load() -> tuple[dict, dict]:
             port:       email SMTP port
     """
 
-    with open("src/config/config.yaml", "r") as file:
+    with open("config/config.yaml", "r") as file:
         config = yaml.safe_load(file)
         local_paths: dict = config[0]["files"]
         email_settings: dict = config[1]["email"]
