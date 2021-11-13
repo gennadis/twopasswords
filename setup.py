@@ -7,7 +7,7 @@ with open("README.md", "r") as readme:
 
 setup(
     name="twopasswords",
-    version="0.0.11",
+    version="0.0.12",
     description="Password manager with face recognition",
     long_description=long_description,
     long_description_content_type="text/markdown",

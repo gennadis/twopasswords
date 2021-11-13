@@ -17,7 +17,12 @@ It allows you to securely save account credentials with a simple TUI interface.
 To start using TwoPasswords, you have to register your face and enter your new Master Password.
 
 ## Installation notes
-TwoPasswords requires `sqlcipher` to be installed on your machine.
+1. TwoPasswords requires `cmake` to be installed on your machine.
+```bash
+pip3 install cmake
+```
+
+2. TwoPasswords requires `sqlcipher` to be installed on your machine.
 
 On MacOS, you can install it with [brew](https://brew.sh/):
 ```bash
@@ -29,7 +34,7 @@ SQLCIPHER_PATH="$(brew --cellar sqlcipher)/$(brew list --versions sqlcipher | tr
 C_INCLUDE_PATH=$SQLCIPHER_PATH/include LIBRARY_PATH=$SQLCIPHER_PATH/lib pip3 install sqlcipher3==0.4.5
 ```
 
-Also you need to install latest ffmpeg library for a latest OpenCV version
+3. Also you need to install latest ffmpeg library for a latest OpenCV version
 ```bash
 brew install ffmpeg
 ```
