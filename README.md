@@ -3,7 +3,7 @@
 [![Pypi](https://img.shields.io/pypi/v/pyvault.svg)](https://pypi.org/project/twopasswords)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-green.svg)](https://raw.githubusercontent.com/gennadis/twopasswords/main/LICENSE)
 
-TwoPasswords is a simple Python password manager.
+TwoPasswords is a simple Python password manager, that uses Face Recognition as a second factor.
 It allows you to securely save account credentials with a simple TUI interface.
 
 ## Features
