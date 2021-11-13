@@ -1,11 +1,16 @@
+# Directories
 venv/
+dist/
+build/
 .DS_Store
 __pycache__
 
-.env
+# Config files
 config.yaml
+*.egg-info
+*.log
 
+# Personal files
 *.sqlite
 *.json
 *.jpg
-*.log

@@ -1,0 +1,13 @@
+include \
+src/config/words.txt \ 
+src/config/config.yaml.example \ 
+LICENSE \
+MANIFEST.in \
+README.md \
+setup.py \
+
+global-exclude \
+  venv \
+  __pycache__ \
+  .DS_Store \ 
+  *.log \

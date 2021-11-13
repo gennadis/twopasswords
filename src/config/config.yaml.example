@@ -8,7 +8,7 @@
     words:      "config/words.txt"
 
 - email:        # Email settings
-    address:    ""
-    password:   ""
+    address:    "some.address@example.org"
+    password:   "some-password"
     server:     "smtp.gmail.com"
     port:       "465"

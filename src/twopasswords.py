@@ -1,4 +1,9 @@
 from views import tui_selector
 
-if __name__ == "__main__":
+
+def main():
     tui_selector.select_tui()
+
+
+if __name__ == "__main__":
+    main()
