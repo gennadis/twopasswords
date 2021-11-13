@@ -1,5 +1,5 @@
 """
-# TODO: one should place some nice text here...
+# TODO: should place some nice text here...
 
 This module is responsible for face 
 recognition authentification processes.
@@ -123,8 +123,8 @@ class FaceScan:
         tolerance : float
             The tolerance that will be
             applied in face recognition process.
-            0.6 for optimal security and performance.
-            Lower is more strict.
+            Use 0.6 for optimal security & performance.
+            Though tolerance lower than 0.6 is more strict.
 
         Returns
         -------
@@ -156,6 +156,7 @@ class FaceScan:
         Returns
         -------
         int
+            Authentification result matrix:
            -1 : Stranger's face detected
             0 : No face detected
             1 : Auth OK
@@ -175,10 +176,10 @@ class FaceScan:
         # if result of auth is not True:
         if self.compare_faces() != [True]:
             self.draw_rectangle()
-            # send email report
             emailer.send_auth_report(
                 "Warning! Stranger's face detected. Check the image in attachments."
             )
             return -1
 
-        return 1  # AUTH OK
+        # else: AUTH OK
+        return 1

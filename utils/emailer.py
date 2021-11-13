@@ -1,5 +1,5 @@
 """
-# TODO: one should place some nice text here...
+# TODO: should place some nice text here...
 
 This module is responsible for generating 
 Authentification reports and forwarding them
