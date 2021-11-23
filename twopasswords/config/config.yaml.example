@@ -8,7 +8,11 @@
     words:      "config/words.txt"
 
 - email:        # Email settings
-    address:    "some.address@example.org"
-    password:   "some-password"
+    address:    "replace-me@example.org"
+    password:   "replace-me"
     server:     "smtp.gmail.com"
     port:       "465"
+
+- logging:     # Logging settings
+    logging:    Flase
+    log_path:   /tmp/

@@ -10,11 +10,12 @@ via Email.
 
 from smtplib import SMTP_SSL
 
-from config import config_loader
 from email.message import EmailMessage
 
+from twopasswords.config.config import load_config
+
 # load configuration
-file_paths, email_settings = config_loader.load()
+file_paths, email_settings = load_config()
 
 
 def send_auth_report(content: str):
@@ -28,7 +29,7 @@ def send_auth_report(content: str):
 
     """
 
-    EmailSender(
+    Emailer(
         "TwoPasswords Auth Report",
         content,
         email_settings["address"],
@@ -39,7 +40,7 @@ def send_auth_report(content: str):
     ).send_email()
 
 
-class EmailSender:
+class Emailer:
     """
     A class used to represent an Email report.
 

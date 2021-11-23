@@ -9,21 +9,20 @@ needed for new user registration:
 
 """
 
-import logging
 from time import sleep
 
 import py_cui
 
-from utils import database
-from views import tui_main
-from config import config_loader
-from utils.facescan import FaceScan
+from twopasswords.utils import database
+from twopasswords.utils.face_scanner import FaceScanner
+from twopasswords.config.config import load_config
+from twopasswords import views_handler
 
 # load configuration
-file_paths, email_settings = config_loader.load()
+file_paths, email_settings = load_config()
 
 
-class RegistrationTUI:
+class RegistrationView:
     """
     A class used to register new user:
         - register new user's face
@@ -93,8 +92,9 @@ class RegistrationTUI:
 
         self.root = root
         self.db_password = None
-        self.root.set_title(f"TwoPasswords")
+        self.create_ui_content()
 
+    def create_ui_content(self):
         ################ WELCOME TEXT BLOCK ################
         self.welcome_block = self.root.add_scroll_menu("Welcome!", 0, 0, 3)
         self.welcome_text = [
@@ -103,13 +103,13 @@ class RegistrationTUI:
             "complete the following tasks:",
             "",
             "1. Scan and register your face",
-            "2. Create a database and your master password",
+            "2. Create database and your master password",
             "3. Proceed by hitting the Next button",
         ]
         self.welcome_block.add_text_color_rule(
             "DONE", py_cui.CYAN_ON_BLACK, "startswith"
         )
-        self.populate_welcome_text()
+        self.update_welcome_text()
 
         ################ TAKE PICTURE BUTTON ################
         self.take_picture_button = self.root.add_button(
@@ -126,35 +126,39 @@ class RegistrationTUI:
         )
         self.create_database_button.set_color(py_cui.WHITE_ON_BLACK)
 
-        ################ EXIT BUTTON ################
+        ################ NEXT BUTTON ################
         self.next_button = self.root.add_button(
-            "Next", 2, 1, command=self.proceed_to_app
+            "Next",
+            2,
+            1,
+            command=views_handler.VIEWS_HANDLER.from_reg_to_main(),
         )
         self.next_button.set_color(py_cui.GREEN_ON_BLACK)
 
         self.root.set_selected_widget(1)
 
-    def proceed_to_app(self):
-        """
-        Stops current PyCUI instance and proceeds
-        to main TwoPasswords app if registration
-        went successfully, else shows error popup.
+    # def proceed_to_main(self):
+    #     """
+    #     Stops current PyCUI instance and proceeds
+    #     to main TwoPasswords app if registration
+    #     went successfully, else shows error popup.
 
-        """
+    #     """
 
-        if self.db_password:
-            self.root.forget_widget(self.welcome_block)
-            self.root.forget_widget(self.take_picture_button)
-            self.root.forget_widget(self.create_database_button)
-            self.root.forget_widget(self.next_button)
-            self.root.stop()
-            tui_main.start_tui(self.db_password)
-        else:
-            self.root.show_error_popup("Error", "Registration was not completed")
+    #     if self.db_password:
+    #         self.root.forget_widget(self.welcome_block)
+    #         self.root.forget_widget(self.take_picture_button)
+    #         self.root.forget_widget(self.create_database_button)
+    #         self.root.forget_widget(self.next_button)
+    #         self.root.stop()
+    #         tui_main.start_tui(self.db_password)
 
-    def populate_welcome_text(self):
+    #     else:
+    #         self.root.show_error_popup("Error", "Registration was not completed")
+
+    def update_welcome_text(self):
         """
-        Populates welcome block with text
+        Updates welcome block with text
 
         """
         self.welcome_block.clear()
@@ -166,12 +170,12 @@ class RegistrationTUI:
 
         """
 
-        FaceScan("", file_paths["user_image"]).take_picture()
+        FaceScanner("", file_paths["user_image"]).take_picture()
         sleep(1)
         self.root.show_message_popup("Done!", "Face registered successfully")
 
         self.welcome_text[4] = "DONE --> " + self.welcome_text[4]
-        self.populate_welcome_text()
+        self.update_welcome_text()
         self.root.set_selected_widget(2)
 
     def show_create_database_popup(self):
@@ -220,7 +224,7 @@ class RegistrationTUI:
             self.db_password = entry1
 
             self.welcome_text[5] = "DONE --> " + self.welcome_text[5]
-            self.populate_welcome_text()
+            self.update_welcome_text()
             self.root.set_selected_widget(3)
 
         else:
@@ -228,20 +232,3 @@ class RegistrationTUI:
                 "Error",
                 "Password and confirm password does not match",
             )
-
-
-def start_registration():
-    """
-    Runs Registration TUI.
-
-    """
-
-    root = py_cui.PyCUI(3, 2)
-    root.toggle_unicode_borders()
-    # root.enable_logging(logging_level=logging.DEBUG)
-    frame = RegistrationTUI(root)
-    root.start()
-
-
-if __name__ == "__main__":
-    start_registration()

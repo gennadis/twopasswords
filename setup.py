@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 with open("README.md", "r") as readme:
@@ -7,7 +7,7 @@ with open("README.md", "r") as readme:
 
 setup(
     name="twopasswords",
-    version="0.0.12",
+    version="0.0.14",
     description="Password manager with face recognition",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -16,13 +16,14 @@ setup(
     author_email="gennady.badinov@gmail.com",
     license="MIT",
     include_package_data=True,
-    package_dir={"twopasswords": "src"},
-    packages=[
-        "twopasswords",
-        "twopasswords.config",
-        "twopasswords.utils",
-        "twopasswords.views",
-    ],
+    # package_dir={"twopasswords": "src"},
+    packages=find_packages(),
+    # packages=[
+    #     "twopasswords",
+    #     "twopasswords.config",
+    #     "twopasswords.utils",
+    #     "twopasswords.views",
+    # ],
     install_requires=[
         "cmake",
         "py-cui",

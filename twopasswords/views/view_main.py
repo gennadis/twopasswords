@@ -17,15 +17,15 @@ import py_cui
 import pyperclip
 
 
-from config import config_loader
-from utils.database import Account, DatabaseEngine
-from utils.password_generator import PasswordGenerator
+from twopasswords.config.config import load_config
+from twopasswords.utils.database import Account, DatabaseEngine
+from twopasswords.utils.pwd_generator import PasswordGenerator
 
 # load configuration
-file_paths, email_settings = config_loader.load()
+file_paths, email_settings = load_config()
 
 
-class TwoPasswordsTUI:
+class MainView:
     """
     A class used to create main TwoPasswords TUI.
 
@@ -72,7 +72,9 @@ class TwoPasswordsTUI:
         self.root = root
         self.database = DatabaseEngine(file_paths["db_path"], pragma)
 
-        self.root.set_title(f"TwoPasswords")
+        self.create_ui_content()
+        self.read_database()
+
         self.root.add_key_command(py_cui.keys.KEY_M_LOWER, self.show_menu)
         self.root.add_key_command(py_cui.keys.KEY_TAB, self.switch_widget)
         self.root.set_status_bar_text("Quit - q | Menu - m ")
@@ -80,7 +82,8 @@ class TwoPasswordsTUI:
         # say bye on exit
         self.root.run_on_exit(self.say_bye)
 
-        ################ ALL ACCOUNTS MENU ################
+    def create_ui_content(self):
+        ################ ALL AccountS MENU ################
         self.all_accounts_menu = self.root.add_scroll_menu(
             "All Accounts", 0, 0, row_span=7, column_span=2
         )
@@ -109,7 +112,7 @@ class TwoPasswordsTUI:
             "|  (o)pen website |  (a)dd  |  Arrows - scroll, Esc - exit"
         )
 
-        ################ ACCOUNT CARD BLOCK ################
+        ################ Account CARD BLOCK ################
         self.account_card_block = self.root.add_scroll_menu(
             "Account card", 0, 2, row_span=8, column_span=6
         )
@@ -171,10 +174,6 @@ class TwoPasswordsTUI:
             py_cui.keys.KEY_ENTER, self.search_account_card
         )
         self.search_textbox.set_help_text("Enter your search query, Esc - exit")
-
-        # On TUI start:
-        # Initialize menus with database state
-        self.read_database()
 
     ################ LOGO ################
     def get_logo(self) -> list:
@@ -342,7 +341,7 @@ class TwoPasswordsTUI:
         )
         self.read_database()
 
-    ################ HANDLE ARROW KEY PRESSES IN ALL ACCOUNTS MENU ################
+    ################ HANDLE ARROW KEY PRESSES IN ALL AccountS MENU ################
     def handle_all_accounts_menu_arrows(self, item):
         """
         Handle all_accounts_menu scrolling
@@ -832,19 +831,19 @@ class TwoPasswordsTUI:
         self.root.show_message_popup("HELP", help_text)
 
 
-def start_tui(pragma):
-    """
-    Runs TwoPasswords TUI.
+# def start_tui(pragma):
+#     """
+#     Runs TwoPasswords TUI.
 
-    """
+#     """
 
-    root = py_cui.PyCUI(8, 8)
-    # root.enable_logging(logging_level=logging.DEBUG)
-    root.toggle_unicode_borders()
-    frame = TwoPasswordsTUI(root, pragma)
+#     root = py_cui.PyCUI(8, 8)
+#     # root.enable_logging(logging_level=logging.DEBUG)
+#     root.toggle_unicode_borders()
+#     frame = TwoPasswordsTUI(root, pragma)
 
-    root.start()
+#     root.start()
 
 
-if __name__ == "__main__":
-    start_tui()
+# if __name__ == "__main__":
+#     start_tui()

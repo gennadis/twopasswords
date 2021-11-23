@@ -18,10 +18,10 @@ from face_recognition import (
     face_locations,
 )
 
-from utils import emailer
+from twopasswords.utils.emailer import Emailer
 
 
-class FaceScan:
+class FaceScanner:
     """
     A class used to represent a FaceScan
     functionality and face recognition
@@ -176,7 +176,7 @@ class FaceScan:
         # if result of auth is not True:
         if self.compare_faces() != [True]:
             self.draw_rectangle()
-            emailer.send_auth_report(
+            Emailer.send_auth_report(
                 "Warning! Stranger's face detected. Check the image in attachments."
             )
             return -1

@@ -12,10 +12,10 @@ totally random, XKCD style, PIN.
 import string
 from random import SystemRandom, choice
 
-from config import config_loader
+from twopasswords.config.config import load_config
 
 # load configuration
-file_paths, email_settings = config_loader.load()
+file_paths, email_settings = load_config()
 
 
 class PasswordGenerator:

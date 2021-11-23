@@ -14,17 +14,17 @@ import threading
 
 import py_cui
 
-from config import config_loader
-from utils import emailer
-from views import tui_main
-from utils.database import DatabaseEngine
-from utils.facescan import FaceScan
+from twopasswords.utils.emailer import Emailer
+from twopasswords.config.config import load_config
+from twopasswords.utils.database import DatabaseEngine
+from twopasswords.utils.face_scanner import FaceScanner
+from twopasswords import views_handler
 
 # load configuration
-file_paths, email_settings = config_loader.load()
+file_paths, email_settings = load_config()
 
 
-class AuthTUI:
+class AuthenticationView:
     """
     A class used to creating and managing
     Authentification TUI that is used for
@@ -95,15 +95,16 @@ class AuthTUI:
         """
 
         self.root = root
-        self.root.set_title(f"TwoPasswords")
+        self.create_ui_content()
+        self.attempts: int = 4
+        self.check_attempts()
+        self.show_scan_face_popup()
+
+    def create_ui_content(self):
         self.auth_menu = self.root.add_scroll_menu(
             "Authentication", 0, 0, 3, 3, padx=20, pady=3
         )
         self.auth_menu.set_selectable(False)
-
-        self.attempts: int = 4
-        self.check_attempts()
-        self.show_facescan_popup()
 
     def check_attempts(self):
         """
@@ -122,10 +123,10 @@ class AuthTUI:
 
         else:
             self.auth_menu.clear()
-            list_of_text = [""] * 27 + [f"Attempts left: {self.attempts}"]
+            list_of_text = [""] * 25 + [f"Attempts left: {self.attempts}"]
             self.auth_menu.add_item_list(list_of_text)
 
-    def show_facescan_popup(self) -> None:
+    def show_scan_face_popup(self) -> None:
         """
         Shows 'Scanning your face' popup
         and runs scan_face method as a parallel thread.
@@ -155,7 +156,7 @@ class AuthTUI:
             1: "Auth OK",
             2: "Multiple faces detected",
         }
-        result: int = FaceScan(
+        result: int = FaceScanner(
             file_paths["user_image"], file_paths["last_image"]
         ).auth()
         self.root.stop_loading_popup()
@@ -188,7 +189,7 @@ class AuthTUI:
         """
 
         if try_again:
-            self.show_facescan_popup()
+            self.show_scan_face_popup()
         else:
             self.root.stop()
 
@@ -228,8 +229,8 @@ class AuthTUI:
             self.database.get_all_accounts()
             self.root.forget_widget(self.auth_menu)
             self.root.stop()
-            tui_main.start_tui(pragma)
-
+            views_handler.VIEWS_HANDLER.open_view_main(pragma)
+            # views_handler.VIEWS_HANDLER.from_auth_to_main(pragma)
         except:
             self.check_attempts()
             self.show_enter_pragma_box()
@@ -242,24 +243,7 @@ class AuthTUI:
 
         """
 
-        emailer.send_auth_report(
-            "Warning! Three attempts of Auth failed. Check the image in attachments."
-        )
+        # emailer.send_auth_report(
+        #     "Warning! Three attempts of Auth failed. Check the image in attachments."
+        # )
         self.root.stop()
-
-
-def start_auth():
-    """
-    Runs Authentification TUI.
-
-    """
-
-    root = py_cui.PyCUI(3, 3)
-    # root.enable_logging(logging_level=logging.DEBUG)  # used for logging
-    root.toggle_unicode_borders()
-    frame = AuthTUI(root)
-    root.start()
-
-
-if __name__ == "__main__":
-    start_auth()

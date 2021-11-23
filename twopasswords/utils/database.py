@@ -12,7 +12,7 @@ from datetime import datetime
 from faker import Faker
 from sqlcipher3 import dbapi2 as sqlite3
 
-from utils.password_generator import PasswordGenerator
+from twopasswords.utils.pwd_generator import PasswordGenerator
 
 
 def create_db(path: str, password: str, to_create: bool = False) -> None:

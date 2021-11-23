@@ -1,8 +1,10 @@
-from typing import List, Tuple
 import yaml
+from pathlib import Path
+
+CONFIG_DIR = Path(__file__).parent.absolute()
 
 
-def load() -> tuple[dict, dict]:
+def load_config() -> tuple[dict, dict]:
     """
     Load config from YAML config file.
 
@@ -24,8 +26,8 @@ def load() -> tuple[dict, dict]:
             port:       email SMTP port
     """
 
-    with open("config/config.yaml", "r") as file:
-        config = yaml.safe_load(file)
+    with open(CONFIG_DIR / "config.yaml", "r") as config_file:
+        config = yaml.safe_load(config_file)
         local_paths: dict = config[0]["files"]
         email_settings: dict = config[1]["email"]
 
