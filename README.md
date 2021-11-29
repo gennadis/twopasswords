@@ -6,7 +6,8 @@
 TwoPasswords is a simple Python password manager, that uses Face Recognition as a second factor.
 It allows you to securely save account credentials with a simple TUI interface.
 
-![Screenshot](https://github.com/gennadis/twopasswords/blob/main/screenshot.png?raw=true)
+![Screenshot](screenshot.png)
+
 
 ## Features
 - Account credentials stored locally in an encrypted SQLite database with [SQLCipher](https://www.zetetic.net/sqlcipher/)
